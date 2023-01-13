@@ -50,7 +50,28 @@
    font-size: x-small;
 }
 
+.register-button{
+    background: #b66a7d; 
+    width: 25%;
+    margin-left: auto;
+    margin-right:auto;
+    border-color: #02040F;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+.register-button:hover{
+    cursor: pointer;
+}
+
 input{
     border-style: hidden;
     width: stretch;
 }
+
+
