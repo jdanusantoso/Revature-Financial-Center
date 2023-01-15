@@ -3,6 +3,7 @@ package com.revature.controllers;
 import com.revature.daos.AccountsDAO;
 import com.revature.models.Accounts;
 import com.revature.models.Transactions;
+import com.revature.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,12 +26,15 @@ public class AccountsController {
         this.aDAO = aDAO;
     }
 
+    @Autowired
+    private AccountService accountService;
+
     //HTTP Requests-------------------------------
 
     //insert digimon - every POST request to /digimon will go here
     @PostMapping(value="/new")
     //url : localhost:5556/data/accounts/new
-    public ResponseEntity addDigimon(@RequestBody Accounts a){
+    public ResponseEntity addAccount(@RequestBody Accounts a){
 
         //Thanks to @RequestBody, our Digimon d parameter is filled with the body of the HTTP Request
         //Automatic JSON conversion :)
@@ -47,7 +51,7 @@ public class AccountsController {
         return ResponseEntity.accepted().body(newAccount); //send a 202 status code and the new digimon
     }
 
-    //GET all digimon - any GET requests to /digimon will go here
+
     @GetMapping (value="/getAllAccounts")
     //url: localhost:5556/data/accounts/getAllAccounts
     public ResponseEntity<List<Accounts>> getAllAccounts(){
@@ -97,6 +101,23 @@ public class AccountsController {
         return ResponseEntity.badRequest().build(); //returning a 400 with no response body
 
     }
+
+    @PostMapping(value="/deposit")
+    //url: localhost:5556/data/transactions/submitTransaction
+    public ResponseEntity depositMoney(@RequestBody Accounts a, double transactionAmount){
+
+        //the save() method from our DAO is how we can insert new data
+        Accounts newTransaction = aDAO.save(a);
+
+        //if insert failed...
+        if(newTransaction == null){
+            return ResponseEntity.badRequest().build(); //send a 400 status code, and no response body
+        }
+
+        //if insert succeeded...
+        return ResponseEntity.accepted().body(newTransaction); //send a 202 status code and the new digimon
+    }
+
 
 
 }

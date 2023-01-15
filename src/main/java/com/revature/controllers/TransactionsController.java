@@ -27,6 +27,9 @@ public class TransactionsController {
         this.tDAO = tDAO;
     }
 
+//    @Autowired
+//    private TransactionService transactionService;
+
     //HTTP Requests-------------------------------
 
     //insert digimon - every POST request to /digimon will go here
@@ -79,6 +82,7 @@ public class TransactionsController {
         return ResponseEntity.badRequest().build(); //returning a 400 with no response body
 
     }
+
 
 
 

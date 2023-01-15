@@ -16,6 +16,13 @@ public class Transactions {
 
     @Column(nullable = false)
     private int accountIdTransaction;
+
+    @Column
+    private int accountIdTransactionRecipient;
+
+    @Column
+    private String transactionMemo;
+
     @Column(nullable = false)
     private String transactionType;
 
@@ -25,9 +32,26 @@ public class Transactions {
     public Transactions() {
     }
 
-    public Transactions(int transactionId, int accountIdTransaction, String transactionType, double transactionAmount) {
+    public Transactions(int transactionId, int accountIdTransaction, int accountIdTransactionRecipient, String transactionMemo, String transactionType, double transactionAmount) {
         this.transactionId = transactionId;
         this.accountIdTransaction = accountIdTransaction;
+        this.accountIdTransactionRecipient = accountIdTransactionRecipient;
+        this.transactionMemo = transactionMemo;
+        this.transactionType = transactionType;
+        this.transactionAmount = transactionAmount;
+    }
+
+    public Transactions(int transactionId, int accountIdTransactionRecipient, String transactionMemo, String transactionType, double transactionAmount) {
+        this.transactionId = transactionId;
+        this.accountIdTransactionRecipient = accountIdTransactionRecipient;
+        this.transactionMemo = transactionMemo;
+        this.transactionType = transactionType;
+        this.transactionAmount = transactionAmount;
+    }
+
+    public Transactions(int transactionId, int accountIdTransactionRecipient, String transactionType, double transactionAmount) {
+        this.transactionId = transactionId;
+        this.accountIdTransactionRecipient = accountIdTransactionRecipient;
         this.transactionType = transactionType;
         this.transactionAmount = transactionAmount;
     }
@@ -40,13 +64,28 @@ public class Transactions {
         this.transactionId = transactionId;
     }
 
-
-    public int getAccountIdTransaction() {
+    public int getAccountIdTransactionSender() {
         return accountIdTransaction;
     }
 
-    public void setAccountIdTransaction(int accountIdTransaction) {
-        this.accountIdTransaction = accountIdTransaction;
+    public void setAccountIdTransactionSender(int accountIdTransactionSender) {
+        this.accountIdTransaction = accountIdTransactionSender;
+    }
+
+    public int getAccountIdTransactionRecipient() {
+        return accountIdTransactionRecipient;
+    }
+
+    public void setAccountIdTransactionRecipient(int accountIdTransactionRecipient) {
+        this.accountIdTransactionRecipient = accountIdTransactionRecipient;
+    }
+
+    public String getTransactionMemo() {
+        return transactionMemo;
+    }
+
+    public void setTransactionMemo(String transactionMemo) {
+        this.transactionMemo = transactionMemo;
     }
 
     public String getTransactionType() {
@@ -69,7 +108,9 @@ public class Transactions {
     public String toString() {
         return "Transactions{" +
                 "transactionId=" + transactionId +
-                ", accountIdTransaction=" + accountIdTransaction +
+                ", accountIdTransactionSender=" + accountIdTransaction +
+                ", accountIdTransactionRecipient=" + accountIdTransactionRecipient +
+                ", transactionMemo='" + transactionMemo + '\'' +
                 ", transactionType='" + transactionType + '\'' +
                 ", transactionAmount=" + transactionAmount +
                 '}';

@@ -21,6 +21,10 @@ public class Accounts {
     @Column(nullable = false) //now this column has a not null constraint
     private String accountHolder;
 
+
+    @Column(columnDefinition="Decimal(10,2)")
+    private double transactionAmount;
+
     @Column(columnDefinition="Decimal(10,2)")
     private double accountBalance;
 
@@ -32,6 +36,14 @@ public class Accounts {
     private Transactions transaction;
 
     public Accounts() {
+    }
+
+    public Accounts(int accountId, String accountHolder, double transactionAmount, double accountBalance, Transactions transaction) {
+        this.accountId = accountId;
+        this.accountHolder = accountHolder;
+        this.transactionAmount = transactionAmount;
+        this.accountBalance = accountBalance;
+        this.transaction = transaction;
     }
 
     public Accounts(int accountId, String accountHolder, double accountBalance, Transactions transaction) {
@@ -63,6 +75,14 @@ public class Accounts {
         this.accountHolder = accountHolder;
     }
 
+    public double getTransactionAmount() {
+        return transactionAmount;
+    }
+
+    public void setTransactionAmount(double transactionAmount) {
+        this.transactionAmount = transactionAmount;
+    }
+
     public double getAccountBalance() {
         return accountBalance;
     }
@@ -84,6 +104,7 @@ public class Accounts {
         return "Accounts{" +
                 "accountId=" + accountId +
                 ", accountHolder='" + accountHolder + '\'' +
+                ", transactionAmount=" + transactionAmount +
                 ", accountBalance=" + accountBalance +
                 ", transaction=" + transaction +
                 '}';
