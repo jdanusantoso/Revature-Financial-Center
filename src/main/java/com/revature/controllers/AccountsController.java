@@ -29,6 +29,7 @@ public class AccountsController {
 
     //insert digimon - every POST request to /digimon will go here
     @PostMapping(value="/new")
+    //url : localhost:5556/data/accounts/new
     public ResponseEntity addDigimon(@RequestBody Accounts a){
 
         //Thanks to @RequestBody, our Digimon d parameter is filled with the body of the HTTP Request
@@ -48,6 +49,7 @@ public class AccountsController {
 
     //GET all digimon - any GET requests to /digimon will go here
     @GetMapping (value="/getAllAccounts")
+    //url: localhost:5556/data/accounts/getAllAccounts
     public ResponseEntity<List<Accounts>> getAllAccounts(){
 
         return ResponseEntity.ok(aDAO.findAll()); //.ok() returns a 200 level status code
@@ -58,6 +60,7 @@ public class AccountsController {
     }
 
     @GetMapping(value="/id/{id}")
+    //url : localhost:5556/data/accounts/id/1
     public ResponseEntity<Accounts> findById(@PathVariable int id){
 
         /* findById from JpaRepository returns an Optional
@@ -78,6 +81,7 @@ public class AccountsController {
     }
 
     @GetMapping(value="/accountHolder/{accountHolder}")
+    // localhost:5556/data/accounts/accountHolder/someone's name
     public ResponseEntity<List<Accounts>> findByName(@PathVariable String accountHolder){
 
         Optional<List<Accounts>> accountOptional = aDAO.findByAccountHolder(accountHolder);

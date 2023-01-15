@@ -12,8 +12,7 @@ public interface TransactionsDAO extends JpaRepository<Transactions, Integer> {
 
     //This is our entire DAO for now... showing custom DAO method below
 
-    @Query("select t from Transactions t where t.transactionType = ?expense")
-    public Optional<List<Transactions>> getByTransaction(String transactionType);
+    public Optional<List<Transactions>> getByAccountIdTransactionAndTransactionType(int accountIdTransaction, String transactionType);
 
 
 }

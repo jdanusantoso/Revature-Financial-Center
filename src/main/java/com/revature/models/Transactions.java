@@ -15,21 +15,21 @@ public class Transactions {
     private int transactionId;
 
     @Column(nullable = false)
-    private int accountTransId;
+    private int accountIdTransaction;
     @Column(nullable = false)
     private String transactionType;
 
     @Column(nullable = false, columnDefinition="Decimal(10,2)")
-    private double TransactionAmount;
+    private double transactionAmount;
 
     public Transactions() {
     }
 
-    public Transactions(int transactionId, int accountTransId, String expenseType, double transactionAmount) {
+    public Transactions(int transactionId, int accountIdTransaction, String transactionType, double transactionAmount) {
         this.transactionId = transactionId;
-        this.accountTransId = accountTransId;
+        this.accountIdTransaction = accountIdTransaction;
         this.transactionType = transactionType;
-        TransactionAmount = transactionAmount;
+        this.transactionAmount = transactionAmount;
     }
 
     public int getTransactionId() {
@@ -40,38 +40,38 @@ public class Transactions {
         this.transactionId = transactionId;
     }
 
-    public int getAccountTransId() {
-        return accountTransId;
+
+    public int getAccountIdTransaction() {
+        return accountIdTransaction;
     }
 
-    public void setAccountTransId(int accountTransId) {
-        this.accountTransId = accountTransId;
+    public void setAccountIdTransaction(int accountIdTransaction) {
+        this.accountIdTransaction = accountIdTransaction;
     }
 
-
-    public String getExpenseType() {
+    public String getTransactionType() {
         return transactionType;
     }
 
-    public void setExpenseType(String expenseType) {
-        this.transactionType = expenseType;
+    public void setTransactionType(String transactionType) {
+        this.transactionType = transactionType;
     }
 
     public double getTransactionAmount() {
-        return TransactionAmount;
+        return transactionAmount;
     }
 
     public void setTransactionAmount(double transactionAmount) {
-        TransactionAmount = transactionAmount;
+        this.transactionAmount = transactionAmount;
     }
 
     @Override
     public String toString() {
         return "Transactions{" +
                 "transactionId=" + transactionId +
-                ", accountTransId=" + accountTransId +
-                ", expenseType='" + transactionType + '\'' +
-                ", TransactionAmount=" + TransactionAmount +
+                ", accountIdTransaction=" + accountIdTransaction +
+                ", transactionType='" + transactionType + '\'' +
+                ", transactionAmount=" + transactionAmount +
                 '}';
     }
 }
