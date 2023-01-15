@@ -9,8 +9,9 @@ export const Dashboard = () => {
 
   return (
     <div className={styles.dashCont}>
+        
         <div onClick={() => navigate('/new')}>
-        New Customer
+        New Account
         </div>
         <div onClick={() => navigate('/deposit')}>
             Deposit
@@ -23,6 +24,26 @@ export const Dashboard = () => {
         </div>
         <div onClick={() => navigate('/balance')}>
             Balance
+        </div>
+
+        <div onClick={() => navigate('/request')}>
+            Request
+        </div>
+
+        <div onClick={() => navigate('/send')}>
+            Send
+        </div>
+
+        <div onClick={() => navigate('/account-tracker')}>
+            Account Tracker
+        </div>
+
+        <div onClick={() => navigate('/income-tracker')}>
+            Income Tracker
+        </div>
+
+        <div onClick={() => navigate('/expense-tracker')}>
+            Expense Tracker
         </div>
     </div>
 )

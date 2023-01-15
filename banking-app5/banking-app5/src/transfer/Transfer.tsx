@@ -27,8 +27,8 @@ export function Transfer() {
         //stop reloading the page
         e.preventDefault();
         //printing out to console
-      console.log(values)
-      // console.log(`Id ${acId} Name ${acNm} Bal ${balance}`)
+      //console.log(values)
+      console.log(`Source Id ${values.srcId} Account Name ${values.destId} Amount ${values.amount}`)
   
   
       }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import "./NewCustomer.css" 
+import styles from "./NewCustomer.module.css" 
 
 export function NewCustomer() {
 
@@ -37,6 +37,7 @@ export function NewCustomer() {
   
 
   return (
+    <div className={styles.custCont}>
     <h1>
 
     {/* <form onSubmit={() => onNewCustomer}> */}
@@ -59,6 +60,8 @@ export function NewCustomer() {
     </form>
 
     </h1>
+
+    </div>  
     
   )
 

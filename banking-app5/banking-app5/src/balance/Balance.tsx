@@ -43,3 +43,5 @@ export function Balance() {
 
     )
 }
+
+export default Balance

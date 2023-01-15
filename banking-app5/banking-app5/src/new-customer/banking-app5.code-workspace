@@ -5,6 +5,12 @@
 		},
 		{
 			"path": "../../../../banking-app2"
+		},
+		{
+			"path": "../../../../dark-mode"
+		},
+		{
+			"path": "../../../../dark-mode-tsx"
 		}
 	],
 	"settings": {}
