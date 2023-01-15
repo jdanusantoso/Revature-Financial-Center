@@ -17,7 +17,7 @@ public class Transactions {
     @Column(nullable = false)
     private int accountTransId;
     @Column(nullable = false)
-    private String expenseType;
+    private String transactionType;
 
     @Column(nullable = false, columnDefinition="Decimal(10,2)")
     private double TransactionAmount;
@@ -28,7 +28,7 @@ public class Transactions {
     public Transactions(int transactionId, int accountTransId, String expenseType, double transactionAmount) {
         this.transactionId = transactionId;
         this.accountTransId = accountTransId;
-        this.expenseType = expenseType;
+        this.transactionType = transactionType;
         TransactionAmount = transactionAmount;
     }
 
@@ -50,11 +50,11 @@ public class Transactions {
 
 
     public String getExpenseType() {
-        return expenseType;
+        return transactionType;
     }
 
     public void setExpenseType(String expenseType) {
-        this.expenseType = expenseType;
+        this.transactionType = expenseType;
     }
 
     public double getTransactionAmount() {
@@ -70,7 +70,7 @@ public class Transactions {
         return "Transactions{" +
                 "transactionId=" + transactionId +
                 ", accountTransId=" + accountTransId +
-                ", expenseType='" + expenseType + '\'' +
+                ", expenseType='" + transactionType + '\'' +
                 ", TransactionAmount=" + TransactionAmount +
                 '}';
     }
