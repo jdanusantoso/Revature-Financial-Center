@@ -19,7 +19,7 @@ public class Transactions {
     @Column(nullable = false)
     private String expenseType;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition="Decimal(10,2)")
     private double TransactionAmount;
 
     public Transactions() {

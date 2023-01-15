@@ -21,10 +21,24 @@ public class Accounts {
     @Column(nullable = false) //now this column has a not null constraint
     private String accountHolder;
 
-    @Column
+    @Column(columnDefinition="Decimal(10,2)")
     private double accountBalance;
 
+
+    //FK relationship
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "transactionId")
+
+    private Transactions transaction;
+
     public Accounts() {
+    }
+
+    public Accounts(int accountId, String accountHolder, double accountBalance, Transactions transaction) {
+        this.accountId = accountId;
+        this.accountHolder = accountHolder;
+        this.accountBalance = accountBalance;
+        this.transaction = transaction;
     }
 
     public Accounts(int accountId, String accountHolder, double accountBalance) {
@@ -57,12 +71,21 @@ public class Accounts {
         this.accountBalance = accountBalance;
     }
 
+    public Transactions getTransaction() {
+        return transaction;
+    }
+
+    public void setTransaction(Transactions transaction) {
+        this.transaction = transaction;
+    }
+
     @Override
     public String toString() {
-        return "accounts{" +
+        return "Accounts{" +
                 "accountId=" + accountId +
                 ", accountHolder='" + accountHolder + '\'' +
                 ", accountBalance=" + accountBalance +
+                ", transaction=" + transaction +
                 '}';
     }
 }
