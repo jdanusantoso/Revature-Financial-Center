@@ -66,7 +66,7 @@ public class TransactionsController {
 
     @GetMapping (value="/getAllTransactionType")
     //url: localhost:5556/data/transactions/getAllTransactionType?accountIdTransaction=1&transactionType=expense
-    //url: localhost:5556/data/transactions/getAllTransactionType?accountIdTransaction=1&transactionType=expense
+    //url: localhost:5556/data/transactions/getAllTransactionType?accountIdTransaction=1&transactionType=income
     public ResponseEntity<List<Transactions>> getByAcctIdAndTransactionType(@RequestParam int accountIdTransaction, @RequestParam String transactionType){
 
         Optional<List<Transactions>> transactionOptional = tDAO.getByAccountIdTransactionAndTransactionType(accountIdTransaction, transactionType );
