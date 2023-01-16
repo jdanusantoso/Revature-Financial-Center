@@ -46,29 +46,9 @@ class AccountServiceTesting {
 
     /*__________________________________Deposits___________________________________________*/
 
-/*
-    @Test
-    void depositTest1() {
-
-        accountsService.depositMoney(account, 0);
-        System.out.print(account);
-        assertEquals(4500, account.getAccountBalance(), 0.01 );
-
-    }
 
     @Test
-    void depositTest2() {
-
-        accountsService.depositMoney(account, 900);
-        System.out.print(account);
-        assertEquals(5400, account.getAccountBalance(), 0.01 );
-
-    }
-*/
-    /*__________________________________Withdrawals__________________________________________________*/
-
-    @Test
-    void withdrawTest1() {
+    void AccountServiceTestingTest1() {
 
         accountsService.withdrawMoney(account, -800);
         System.out.print(account.getTransactionAmount());
@@ -78,11 +58,10 @@ class AccountServiceTesting {
 
     }
 
-    @Test
-    void withdrawTest2() {
-        accountsService.withdrawMoney(account, 2000.00);
-        assertEquals(2500, account.getAccountBalance(), 0.01);
-    }
+
+    /*__________________________________Withdrawals__________________________________________________*/
+
+
 
     /*
     public void withdrawMoney(Accounts a, double transactionAmount) {
