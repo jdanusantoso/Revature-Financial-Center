@@ -65,6 +65,15 @@ public class Accounts {
         this.transaction = transaction;
     }
 
+    //Constructor for transfering money
+
+    public Accounts(int accountId, int accountIdRecipient, double transactionAmount) {
+        this.accountId = accountId;
+        this.accountIdRecipient = accountIdRecipient;
+        this.transactionAmount = transactionAmount;
+    }
+
+
     //Constructor for sending money
 
 

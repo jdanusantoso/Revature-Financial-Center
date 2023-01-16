@@ -26,16 +26,30 @@ public class AccountService {
         accountDAO.updateAccount(a);
     }
 
-    public void transferMoney(Accounts a, Accounts from, Accounts to, Double transactionAmount){
+    public void transferMoney(Accounts accountId, Accounts accountIdRecipient, Double transactionAmount){
 
-        if(a.getAccountId() == a.getAccountIdRecipient()){
+        if(accountId != accountIdRecipient){
             throw new InvalidAccountTransferException();
         }
 
-        withdrawMoney(from, transactionAmount);
-        depositMoney(to, transactionAmount);
-        accountDAO.updateAccount(a);
+        withdrawMoney(accountId, transactionAmount);
+        depositMoney(accountIdRecipient, transactionAmount);
+
 
     }
+
+    public void sendMoney(Accounts accountId, Accounts accountHolder, Accounts accountHolderRecipient, Accounts accountIdRecipient, Double transactionAmount){
+
+        if(accountHolder == accountHolderRecipient){
+            throw new InvalidAccountTransferException();
+        }
+
+        withdrawMoney(accountId, transactionAmount);
+        depositMoney(accountIdRecipient, transactionAmount);
+
+
+    }
+
+
 
 }

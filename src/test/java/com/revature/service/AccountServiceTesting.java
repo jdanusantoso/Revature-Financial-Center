@@ -25,7 +25,7 @@ class AccountServiceTesting {
         a = new Accounts();
         a.setAccountHolder("John");
         a.setAccountBalance(4500);
-        a.setTransactionAmount(-800);
+        a.setTransactionAmount(0);
         a.setAccountId(1);
     }
 
@@ -36,7 +36,7 @@ class AccountServiceTesting {
 
     //Test 6
     @Test
-    void depositTest() {
+    void depositTest1() {
         accountsService.depositMoney(a, a.getAccountBalance());
         double actual = (a.getTransactionAmount() + a.getAccountBalance());
         assertEquals(5300, actual, 0.001);
@@ -45,19 +45,37 @@ class AccountServiceTesting {
 
     //Test 7
     @Test
-    void withdrawTest1() {
+    void depositTest2() {
         accountsService.depositMoney(a, a.getAccountBalance());
-        double actual = (a.getAccountBalance() -a.getTransactionAmount());
+        double actual = (a.getAccountBalance() +a.getTransactionAmount());
         assertEquals(5500, actual, 0.001);
 
     }
 
     //Test 8
     @Test
+    void withdrawTest1() {
+        accountsService.withdrawMoney(a, a.getAccountBalance());
+        double actual = ( a.getAccountBalance() -a.getTransactionAmount()); //-800
+        assertEquals(4500, actual, 0.001);
+
+    }
+
+    //Test 9
+    @Test
     void withdrawTest2() {
         accountsService.withdrawMoney(a, a.getAccountBalance());
         double actual = ( a.getAccountBalance() -a.getTransactionAmount());
         assertEquals(3700, actual, 0.001);
+
+    }
+
+    //Test 10
+    @Test
+    void withdrawTest3() {
+        accountsService.withdrawMoney(a, a.getAccountBalance());
+        double actual = ( a.getAccountBalance() -a.getTransactionAmount()); //account transaction amount is 0
+        assertEquals(4500, actual, 0.001);
 
     }
 

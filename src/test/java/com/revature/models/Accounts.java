@@ -18,8 +18,14 @@ public class Accounts {
     //non-id columns don't technically need any annotation at all
     //BUT @Column is good for clarity and any constraints you may need
 
+    @Column //now this column has a not null constraint
+    private int accountIdRecipient;
+
     @Column(nullable = false) //now this column has a not null constraint
     private String accountHolder;
+
+    @Column //now this column has a not null constraint
+    private String accountHolderRecipient;
 
 
     @Column(columnDefinition="Decimal(10,2)")
@@ -36,6 +42,39 @@ public class Accounts {
     private Transactions transaction;
 
     public Accounts() {
+    }
+
+    //All fields in constructor
+    public Accounts(int accountId, int accountIdRecipient, String accountHolder, String accountHolderRecipient, double transactionAmount, double accountBalance, Transactions transaction) {
+        this.accountId = accountId;
+        this.accountIdRecipient = accountIdRecipient;
+        this.accountHolder = accountHolder;
+        this.accountHolderRecipient = accountHolderRecipient;
+        this.transactionAmount = transactionAmount;
+        this.accountBalance = accountBalance;
+        this.transaction = transaction;
+    }
+
+    //Constructor for depositing/withdrawing money
+    public Accounts(int accountId, String accountHolder, String accountHolderRecipient, double transactionAmount, double accountBalance, Transactions transaction) {
+        this.accountId = accountId;
+        this.accountHolder = accountHolder;
+        this.accountHolderRecipient = accountHolderRecipient;
+        this.transactionAmount = transactionAmount;
+        this.accountBalance = accountBalance;
+        this.transaction = transaction;
+    }
+
+    //Constructor for sending money
+
+
+    public Accounts(int accountId, int accountIdRecipient, String accountHolder, String accountHolderRecipient, double transactionAmount, double accountBalance) {
+        this.accountId = accountId;
+        this.accountIdRecipient = accountIdRecipient;
+        this.accountHolder = accountHolder;
+        this.accountHolderRecipient = accountHolderRecipient;
+        this.transactionAmount = transactionAmount;
+        this.accountBalance = accountBalance;
     }
 
     public Accounts(int accountId, String accountHolder, double transactionAmount, double accountBalance, Transactions transaction) {
@@ -67,12 +106,28 @@ public class Accounts {
         this.accountId = accountId;
     }
 
+    public int getAccountIdRecipient() {
+        return accountIdRecipient;
+    }
+
+    public void setAccountIdRecipient(int accountIdRecipient) {
+        this.accountIdRecipient = accountIdRecipient;
+    }
+
     public String getAccountHolder() {
         return accountHolder;
     }
 
     public void setAccountHolder(String accountHolder) {
         this.accountHolder = accountHolder;
+    }
+
+    public String getAccountHolderRecipient() {
+        return accountHolderRecipient;
+    }
+
+    public void setAccountHolderRecipient(String accountHolderRecipient) {
+        this.accountHolderRecipient = accountHolderRecipient;
     }
 
     public double getTransactionAmount() {
@@ -103,7 +158,9 @@ public class Accounts {
     public String toString() {
         return "Accounts{" +
                 "accountId=" + accountId +
+                ", accountIdRecipient='" + accountIdRecipient + '\'' +
                 ", accountHolder='" + accountHolder + '\'' +
+                ", accountHolderRecipient='" + accountHolderRecipient + '\'' +
                 ", transactionAmount=" + transactionAmount +
                 ", accountBalance=" + accountBalance +
                 ", transaction=" + transaction +
