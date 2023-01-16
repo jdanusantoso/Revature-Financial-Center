@@ -25,7 +25,7 @@ class AccountServiceTesting {
         a = new Accounts();
         a.setAccountHolder("John");
         a.setAccountBalance(4500);
-        a.setTransactionAmount(800);
+        a.setTransactionAmount(-800);
         a.setAccountId(1);
     }
 
@@ -36,13 +36,32 @@ class AccountServiceTesting {
 
     //Test 6
     @Test
-    void withdrawTest() {
-        double transactionAmount = 800;
-        accountsService.depositMoney(a, transactionAmount);
-        double actual = (transactionAmount + a.getAccountBalance());
+    void depositTest() {
+        accountsService.depositMoney(a, a.getAccountBalance());
+        double actual = (a.getTransactionAmount() + a.getAccountBalance());
         assertEquals(5300, actual, 0.001);
 
     }
+
+    //Test 7
+    @Test
+    void withdrawTest1() {
+        accountsService.depositMoney(a, a.getAccountBalance());
+        double actual = (a.getAccountBalance() -a.getTransactionAmount());
+        assertEquals(5500, actual, 0.001);
+
+    }
+
+    //Test 8
+    @Test
+    void withdrawTest2() {
+        accountsService.withdrawMoney(a, a.getAccountBalance());
+        double actual = ( a.getAccountBalance() -a.getTransactionAmount());
+        assertEquals(3700, actual, 0.001);
+
+    }
+
+
 
 }
 
