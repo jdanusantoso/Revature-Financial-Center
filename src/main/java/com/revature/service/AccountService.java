@@ -2,9 +2,9 @@ package com.revature.service;
 
 import com.revature.daos.AccountsDAO;
 import com.revature.exception.InvalidAccountTransferException;
+import com.revature.exception.InvalidAmountException;
 import com.revature.exception.OverDraftException;
 import com.revature.models.Accounts;
-import com.revature.models.Transactions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 @Service
@@ -17,20 +17,29 @@ public class AccountService {
         this.accountDAO = accountDAO;
     }
 
-    public void depositMoney(Accounts a, double transactionAmount) {
+    public /*void*/ double depositMoney(Accounts a, double transactionAmount) {
 
-        a.setAccountBalance(a.getAccountBalance() + transactionAmount);
+        if (transactionAmount <= 0){
+            System.out.println("Please enter an appropriate amount.");
+        }
+
+        double newAccountBalance =(a.getAccountBalance() + transactionAmount);
+
+        a.setAccountBalance(newAccountBalance);
         accountDAO.updateAccount(a);
+        return a.getAccountBalance();
     }
 
-    public void withdrawMoney(Accounts a, double transactionAmount) {
+    public /*void*/ double withdrawMoney(Accounts a, double transactionAmount) {
 
         if(a.getTransactionAmount() > a.getAccountBalance()){
             throw new OverDraftException();
         }
 
-        a.setAccountBalance(a.getAccountBalance() - transactionAmount);
-        accountDAO.updateAccount(a);
+        return (a.getAccountBalance() - transactionAmount);
+//        a.setAccountBalance(newWithdrawalAccountBalance);
+//        accountDAO.updateAccount(a);
+//        return a.getAccountBalance();
     }
 
     public void transferMoney(Accounts a, Accounts from, Accounts to, Double transactionAmount){
