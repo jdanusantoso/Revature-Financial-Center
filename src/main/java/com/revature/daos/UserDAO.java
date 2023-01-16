@@ -11,7 +11,7 @@ public interface UserDAO extends JpaRepository<Users, Integer> {
 
     //This is our entire DAO for now... showing custom DAO method below
 
-    public Optional<List<Users>> getByUsernameAndPassword(String username, String passsword);
+    public Optional<List<Users>> getByUsernameAndPassword(String username, String password);
 
 
 }

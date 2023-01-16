@@ -3,6 +3,7 @@ package com.revature.controllers;
 import com.revature.daos.AccountsDAO;
 import com.revature.daos.UserDAO;
 import com.revature.models.Accounts;
+import com.revature.models.Transactions;
 import com.revature.models.Users;
 import com.revature.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,19 +53,42 @@ public class UserController {
         return ResponseEntity.accepted().body(newUser); //send a 202 status code and the new digimon
     }
 
-}
 
-/*
-    @GetMapping (value="/getAllAccounts")
-    //url: localhost:5556/data/accounts/getAllAccounts
-    public ResponseEntity<List<Accounts>> getAllAccounts(){
 
-        return ResponseEntity.ok(aDAO.findAll()); //.ok() returns a 200 level status code
+
+    @GetMapping (value="/getAllUsers")
+    //url: localhost:5556/data/users/getAllUsers
+    public ResponseEntity<List<Users>> getAllAccounts(){
+
+        return ResponseEntity.ok(uDAO.findAll()); //.ok() returns a 200 level status code
 
         //note that I'm nesting the DB call in the actual return
         //this is shorthand - I could have done .ok().body(dDAO.findAll());
 
     }
+
+    @GetMapping (value="/login")
+    //url: localhost:5556/data/users/login
+    public ResponseEntity<List<Users>> getByUsernameAndPassword(@RequestParam("username") String username, @RequestParam("password")String password){
+
+        Optional<List<Users>> userOptional = uDAO.getByUsernameAndPassword(username, password );
+
+        //we can check if the optional has data with .isPresent(), or .isEmpty()
+        if(userOptional.isPresent()){
+            //we can extract the Optional's data with .get()
+            List<Users> extractedUser = userOptional.get();
+
+            return ResponseEntity.ok(extractedUser);
+        }
+        //if get by name failed...
+        return ResponseEntity.badRequest().build(); //returning a 400 with no response body
+
+    }
+
+
+}
+
+/*
 
     @GetMapping(value="/id/{id}")
     //url : localhost:5556/data/accounts/id/1
