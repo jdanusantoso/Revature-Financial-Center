@@ -34,11 +34,14 @@ class AccountServiceTesting {
         a = null;
     }
 
+    //Test 6
     @Test
     void withdrawTest() {
         double transactionAmount = 800;
         accountsService.depositMoney(a, transactionAmount);
-        System.out.println(transactionAmount + a.getTransactionAmount());
+        double actual = (transactionAmount + a.getAccountBalance());
+        assertEquals(5300, actual, 0.001);
+
     }
 
 }
