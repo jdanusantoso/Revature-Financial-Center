@@ -135,7 +135,7 @@ public class AccountsController {
         return ResponseEntity.accepted().body(newTransaction); //send a 202 status code and the new digimon
     }
 
-    @PostMapping(value="/withdraw")
+    @PostMapping(value="/transfer")
     //url: localhost:5556/data/transactions/submitTransaction
     public ResponseEntity transferMoney(@RequestBody Accounts a, Double transactionAmount){
 

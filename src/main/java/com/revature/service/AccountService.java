@@ -17,7 +17,7 @@ public class AccountService {
         this.accountDAO = accountDAO;
     }
 
-    public /*void*/ double depositMoney(Accounts a, double transactionAmount) {
+    public void depositMoney(Accounts a, double transactionAmount) {
 
         if (transactionAmount <= 0){
             System.out.println("Please enter an appropriate amount.");
@@ -27,24 +27,24 @@ public class AccountService {
 
         a.setAccountBalance(newAccountBalance);
         accountDAO.updateAccount(a);
-        return a.getAccountBalance();
+//        return a.getAccountBalance();
     }
 
-    public /*void*/ double withdrawMoney(Accounts a, double transactionAmount) {
+    public void  withdrawMoney(Accounts a, double transactionAmount) {
 
         if(a.getTransactionAmount() > a.getAccountBalance()){
             throw new OverDraftException();
         }
 
-        return (a.getAccountBalance() - transactionAmount);
-//        a.setAccountBalance(newWithdrawalAccountBalance);
-//        accountDAO.updateAccount(a);
-//        return a.getAccountBalance();
+        double newWithdrawalAccountBalance = (a.getAccountBalance() - transactionAmount);
+        a.setAccountBalance(newWithdrawalAccountBalance);
+        accountDAO.updateAccount(a);
+
     }
 
     public void transferMoney(Accounts a, Accounts from, Accounts to, Double transactionAmount){
 
-        if(a.getAccountId() == a.getAccountIdReceipient()){
+        if(a.getAccountId() == a.getAccountIdRecipient()){
             throw new InvalidAccountTransferException();
         }
 

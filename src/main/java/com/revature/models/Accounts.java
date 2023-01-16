@@ -19,7 +19,7 @@ public class Accounts {
     //BUT @Column is good for clarity and any constraints you may need
 
     @Column //now this column has a not null constraint
-    private int accountIdReceipient;
+    private int accountIdRecipient;
 
     @Column(nullable = false) //now this column has a not null constraint
     private String accountHolder;
@@ -41,9 +41,9 @@ public class Accounts {
     public Accounts() {
     }
 
-    public Accounts(int accountId, int accountIdReceipient, String accountHolder, double transactionAmount, double accountBalance, Transactions transaction) {
+    public Accounts(int accountId, int accountIdRecipient, String accountHolder, double transactionAmount, double accountBalance, Transactions transaction) {
         this.accountId = accountId;
-        this.accountIdReceipient = accountIdReceipient;
+        this.accountIdRecipient = accountIdRecipient;
         this.accountHolder = accountHolder;
         this.transactionAmount = transactionAmount;
         this.accountBalance = accountBalance;
@@ -79,12 +79,12 @@ public class Accounts {
         this.accountId = accountId;
     }
 
-    public int getAccountIdReceipient() {
-        return accountIdReceipient;
+    public int getAccountIdRecipient() {
+        return accountIdRecipient;
     }
 
-    public void setAccountIdReceipient(int accountIdReceipient) {
-        this.accountIdReceipient = accountIdReceipient;
+    public void setAccountIdRecipient(int accountIdRecipient) {
+        this.accountIdRecipient = accountIdRecipient;
     }
 
     public String getAccountHolder() {
@@ -123,7 +123,7 @@ public class Accounts {
     public String toString() {
         return "Accounts{" +
                 "accountId=" + accountId +
-                ", accountIdRecipient='" + accountIdReceipient + '\'' +
+                ", accountIdRecipient='" + accountIdRecipient + '\'' +
                 ", accountHolder='" + accountHolder + '\'' +
                 ", transactionAmount=" + transactionAmount +
                 ", accountBalance=" + accountBalance +
