@@ -1,5 +1,12 @@
 .App {
   text-align: center;
-  background-color: coral;
+  
+}
+
+body{
+  background: #f5af19;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #f5af19, #f12711);
+  background: linear-gradient(to right, #f5af19, #f12711); 
+   
 }
 

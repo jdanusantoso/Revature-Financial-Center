@@ -7,97 +7,68 @@ import ReactDOM  from 'react-dom';
 
 const Register = () =>{
 
-const[{username,password,repeatPassword, firstname,lastname,email}, setRegisterData] = useState({
-    username:"",
-    password:"",
-    repeatPassword:"",
-    firstname:"",
-    lastname:"",
-    email:""
-
-})
-const[error,setError] = useState('')
-
-   const register = (event: React.FormEvent) =>{
-       event.preventDefault();
-       if(password === repeatPassword){
-
-       }else{
-        setError('Passwords must match,please try again')
-       }
+const[username,setUsername] = useState("");
+const[password,setPassword] = useState("");
+const[firstname,setFirstname] = useState("");
+const[lastname,setLastname] = useState("");
+const[email,setEmail] = useState("");
 
 
-   }
+
+   
 
 return(
     <div className="Register">
         <div className='register-container'>
             <h2>Register Here</h2>
-        <form onSubmit={Register}>
+    <form onSubmit={Register}>
         <div className='labels'>
-       <label htmlFor="username">username</label>
-       <input value={username}  type ="text" name='username' placeholder='username' onChange={(event)=> setRegisterData ({
-        username: event.target.value,
-        password,
-        repeatPassword,
-        firstname,
-        lastname,
-        email })} />
+        <input
+             value={username}  
+             type ="username" 
+             placeholder='Lsername'
+             onChange={(e)=> setUsername(e.target.value)}/>
+
         </div>
+
         <div className='labels'>
-        <label htmlFor="password">Password</label> 
-        <input value={password}  type = "password" name='password' placeholder='password' onChange={(event)=> setRegisterData ({
-        username,
-        password: event.target.value,
-        repeatPassword,
-        firstname,
-        lastname,
-        email })} />
+        <input
+             value={password}  
+             type ="password" 
+             placeholder='Password'
+             onChange={(e)=> setPassword(e.target.value)}/>
+
         </div>
+
         <div className='labels'>
-        <label htmlFor="repeatPassword">Repeat Password</label> 
-        <input value={repeatPassword} type="password" name='repeatPassword' placeholder='password' onChange={(event)=> setRegisterData ({
-        username,
-        password,
-        repeatPassword: event.target.value,
-        firstname,
-        lastname,
-        email })} />
+        <input
+             value={firstname}  
+             type ="firstname" 
+             placeholder='Firstnamename'
+             onChange={(e)=> setFirstname(e.target.value)}/>
+
         </div>
+
         <div className='labels'>
-        <label htmlFor="firstname">Firstname</label> 
-        <input value={firstname} type ="text" name='firstname' placeholder='firstname' onChange={(event)=> setRegisterData ({
-        username,
-        password,
-        repeatPassword,
-        firstname: event.target.value,
-        lastname,
-        email })} />
+        <input
+             value={lastname}  
+             type ="lastname" 
+             placeholder='Lastname'
+             onChange={(e)=> setLastname(e.target.value)}/>
+
         </div>
+
         <div className='labels'>
-        <label htmlFor="lastname">Lastname</label> 
-        <input value={lastname} type ="text" name='lastname' placeholder='lastname' onChange={(event)=> setRegisterData ({
-        username,
-        password,
-        repeatPassword,
-        firstname,
-        lastname: event.target.value,
-        email })} />
+        <input
+             value={email}  
+             type ="email" 
+             placeholder='Email'
+             onChange={(e)=> setEmail(e.target.value)}/>
+
         </div>
-        <div className='labels'>
-        <label htmlFor="email">Email</label> 
-        <input value={email} type ="email"name='email' placeholder='email' onChange={(event)=> setRegisterData ({
-        username,
-        password,
-        repeatPassword,
-        firstname,
-        lastname,
-        email: event.target.value
-         })} />
-        </div>
-        <button className='reg-button'>Register</button>
-        {error.length > 0 && <p>(error)</p>}
-        </form>
+
+           <button className='reg-button'>Register</button>
+    </form>
          
         </div>
 
