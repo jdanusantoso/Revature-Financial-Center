@@ -18,9 +18,6 @@ public class Accounts {
     //non-id columns don't technically need any annotation at all
     //BUT @Column is good for clarity and any constraints you may need
 
-    @Column //now this column has a not null constraint
-    private int accountIdRecipient;
-
     @Column(nullable = false) //now this column has a not null constraint
     private String accountHolder;
 
@@ -39,15 +36,6 @@ public class Accounts {
     private Transactions transaction;
 
     public Accounts() {
-    }
-
-    public Accounts(int accountId, int accountIdRecipient, String accountHolder, double transactionAmount, double accountBalance, Transactions transaction) {
-        this.accountId = accountId;
-        this.accountIdRecipient = accountIdRecipient;
-        this.accountHolder = accountHolder;
-        this.transactionAmount = transactionAmount;
-        this.accountBalance = accountBalance;
-        this.transaction = transaction;
     }
 
     public Accounts(int accountId, String accountHolder, double transactionAmount, double accountBalance, Transactions transaction) {
@@ -77,14 +65,6 @@ public class Accounts {
 
     public void setAccountId(int accountId) {
         this.accountId = accountId;
-    }
-
-    public int getAccountIdRecipient() {
-        return accountIdRecipient;
-    }
-
-    public void setAccountIdRecipient(int accountIdRecipient) {
-        this.accountIdRecipient = accountIdRecipient;
     }
 
     public String getAccountHolder() {
@@ -123,7 +103,6 @@ public class Accounts {
     public String toString() {
         return "Accounts{" +
                 "accountId=" + accountId +
-                ", accountIdRecipient='" + accountIdRecipient + '\'' +
                 ", accountHolder='" + accountHolder + '\'' +
                 ", transactionAmount=" + transactionAmount +
                 ", accountBalance=" + accountBalance +

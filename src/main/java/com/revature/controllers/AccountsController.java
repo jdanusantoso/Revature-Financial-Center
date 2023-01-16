@@ -104,7 +104,7 @@ public class AccountsController {
 
     @PostMapping(value="/deposit")
     //url: localhost:5556/data/transactions/submitTransaction
-    public ResponseEntity depositMoney(@RequestBody Accounts a, Double transactionAmount, Double accountBalance){
+    public ResponseEntity depositMoney(@RequestBody Accounts a, double transactionAmount){
 
         //the save() method from our DAO is how we can insert new data
         Accounts newTransaction = aDAO.save(a);
@@ -118,38 +118,6 @@ public class AccountsController {
         return ResponseEntity.accepted().body(newTransaction); //send a 202 status code and the new digimon
     }
 
-
-    @PostMapping(value="/withdraw")
-    //url: localhost:5556/data/transactions/submitTransaction
-    public ResponseEntity withdrawMoney(@RequestBody Accounts a, Double transactionAmount, Double accountBalance){
-
-        //the save() method from our DAO is how we can insert new data
-        Accounts newTransaction = aDAO.save(a);
-
-        //if insert failed...
-        if(newTransaction == null){
-            return ResponseEntity.badRequest().build(); //send a 400 status code, and no response body
-        }
-
-        //if insert succeeded...
-        return ResponseEntity.accepted().body(newTransaction); //send a 202 status code and the new digimon
-    }
-
-    @PostMapping(value="/transfer")
-    //url: localhost:5556/data/transactions/submitTransaction
-    public ResponseEntity transferMoney(@RequestBody Accounts a, Double transactionAmount){
-
-        //the save() method from our DAO is how we can insert new data
-        Accounts newTransferRequest = aDAO.save(a);
-
-        //if insert failed...
-        if(newTransferRequest == null){
-            return ResponseEntity.badRequest().build(); //send a 400 status code, and no response body
-        }
-
-        //if insert succeeded...
-        return ResponseEntity.accepted().body(newTransferRequest); //send a 202 status code and the new digimon
-    }
 
 
 }
