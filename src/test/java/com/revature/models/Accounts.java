@@ -18,6 +18,7 @@ public class Accounts {
     //non-id columns don't technically need any annotation at all
     //BUT @Column is good for clarity and any constraints you may need
 
+<<<<<<< HEAD
     @Column //now this column has a not null constraint
     private int accountIdRecipient;
 
@@ -27,6 +28,11 @@ public class Accounts {
     @Column //now this column has a not null constraint
     private String accountHolderRecipient;
 
+=======
+    @Column(nullable = false) //now this column has a not null constraint
+    private String accountHolder;
+
+>>>>>>> 6dba3e83bd3367e06c81f8e00175b5ced0fe19b6
 
     @Column(columnDefinition="Decimal(10,2)")
     private double transactionAmount;
@@ -44,6 +50,7 @@ public class Accounts {
     public Accounts() {
     }
 
+<<<<<<< HEAD
     //All fields in constructor
     public Accounts(int accountId, int accountIdRecipient, String accountHolder, String accountHolderRecipient, double transactionAmount, double accountBalance, Transactions transaction) {
         this.accountId = accountId;
@@ -77,6 +84,8 @@ public class Accounts {
         this.accountBalance = accountBalance;
     }
 
+=======
+>>>>>>> 6dba3e83bd3367e06c81f8e00175b5ced0fe19b6
     public Accounts(int accountId, String accountHolder, double transactionAmount, double accountBalance, Transactions transaction) {
         this.accountId = accountId;
         this.accountHolder = accountHolder;
@@ -106,6 +115,7 @@ public class Accounts {
         this.accountId = accountId;
     }
 
+<<<<<<< HEAD
     public int getAccountIdRecipient() {
         return accountIdRecipient;
     }
@@ -114,6 +124,8 @@ public class Accounts {
         this.accountIdRecipient = accountIdRecipient;
     }
 
+=======
+>>>>>>> 6dba3e83bd3367e06c81f8e00175b5ced0fe19b6
     public String getAccountHolder() {
         return accountHolder;
     }
@@ -122,6 +134,7 @@ public class Accounts {
         this.accountHolder = accountHolder;
     }
 
+<<<<<<< HEAD
     public String getAccountHolderRecipient() {
         return accountHolderRecipient;
     }
@@ -130,6 +143,8 @@ public class Accounts {
         this.accountHolderRecipient = accountHolderRecipient;
     }
 
+=======
+>>>>>>> 6dba3e83bd3367e06c81f8e00175b5ced0fe19b6
     public double getTransactionAmount() {
         return transactionAmount;
     }
@@ -158,9 +173,13 @@ public class Accounts {
     public String toString() {
         return "Accounts{" +
                 "accountId=" + accountId +
+<<<<<<< HEAD
                 ", accountIdRecipient='" + accountIdRecipient + '\'' +
                 ", accountHolder='" + accountHolder + '\'' +
                 ", accountHolderRecipient='" + accountHolderRecipient + '\'' +
+=======
+                ", accountHolder='" + accountHolder + '\'' +
+>>>>>>> 6dba3e83bd3367e06c81f8e00175b5ced0fe19b6
                 ", transactionAmount=" + transactionAmount +
                 ", accountBalance=" + accountBalance +
                 ", transaction=" + transaction +
