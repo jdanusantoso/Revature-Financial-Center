@@ -1,11 +1,11 @@
 package com.revature.controllers;
 
-import com.revature.daos.AccountsDAO;
 import com.revature.daos.UserDAO;
-import com.revature.models.Accounts;
-import com.revature.models.Transactions;
+import com.revature.exception.UserDoesNotExistException;
+import com.revature.exception.UserNotFoundException;
 import com.revature.models.Users;
 import com.revature.service.AccountService;
+import com.revature.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,7 +29,8 @@ public class UserController {
     }
 
     @Autowired
-    private AccountService accountService;
+    private UserService userService;
+
 
     //HTTP Requests-------------------------------
 
@@ -71,7 +72,7 @@ public class UserController {
     //url: localhost:5556/data/users/login
     public ResponseEntity<List<Users>> getByUsernameAndPassword(@RequestParam("username") String username, @RequestParam("password")String password){
 
-        Optional<List<Users>> userOptional = uDAO.getByUsernameAndPassword(username, password );
+        Optional<List<Users>> userOptional = userService.loginUser(username, password );
 
         //we can check if the optional has data with .isPresent(), or .isEmpty()
         if(userOptional.isPresent()){
@@ -82,6 +83,58 @@ public class UserController {
         }
         //if get by name failed...
         return ResponseEntity.badRequest().build(); //returning a 400 with no response body
+
+    }
+
+    @GetMapping(value="/findById/{userId}")
+    //url : localhost:5556/data/accounts/id/1
+    public ResponseEntity<Users> findById(@PathVariable int userId){
+
+        /* findById from JpaRepository returns an Optional
+          Optionals lend to code flexibility because it MAY OR MAY NOT have the request object.
+          This helps us avoid NullPointerExceptions
+         */
+        Optional<Users> accountOptional = uDAO.findById(userId);
+
+        //we can check if the optional has data with .isPresent(), or .isEmpty()
+        if(accountOptional.isPresent()){
+            //we can extract the Optional's data with .get()
+            Users extractedUser = accountOptional.get();
+
+            return ResponseEntity.ok(extractedUser);
+        }
+        //if get by ID failed...
+        return ResponseEntity.badRequest().build(); //returning a 400 with no response body
+
+
+    }
+
+    @PatchMapping(value="/updateUserInfo/{userId}")
+    public ResponseEntity<Users> updateUserInfo(@PathVariable int userId, @RequestBody Users user){
+        Users updateUserInfo = uDAO.findById(userId)
+                .orElseThrow(() -> new UserNotFoundException());
+
+        updateUserInfo.setLastName(user.getLastName());
+        updateUserInfo.setEmail(user.getEmail());
+//        updateUser.setUsername(user.getUsername());
+//        updateUser.setPassword(user.getPassword());
+
+        uDAO.save(updateUserInfo);
+
+        return ResponseEntity.ok(updateUserInfo);
+
+    }
+
+    @PatchMapping(value="/updateUserPassword/{userId}")
+    public ResponseEntity<Users> updateUserPassword(@PathVariable int userId, @RequestBody Users user){
+        Users updateUserPassword = uDAO.findById(userId)
+                .orElseThrow(() -> new UserNotFoundException());
+
+        updateUserPassword.setPassword(user.getPassword());
+
+        uDAO.save(updateUserPassword);
+
+        return ResponseEntity.ok(updateUserPassword);
 
     }
 
