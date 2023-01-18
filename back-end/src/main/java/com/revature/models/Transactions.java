@@ -16,42 +16,32 @@ public class Transactions {
 
     @Column(nullable = false)
     private int accountIdTransaction;
-
-    @Column
-    private int accountIdTransactionRecipient;
-
-    @Column
-    private String transactionMemo;
-
     @Column(nullable = false)
     private String transactionType;
 
     @Column(nullable = false, columnDefinition="Decimal(10,2)")
     private double transactionAmount;
 
+    //FK relationship that shows many transactions to 1 account
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "accountId")
+
+    private Accounts account;
+
     public Transactions() {
     }
 
-    public Transactions(int transactionId, int accountIdTransaction, int accountIdTransactionRecipient, String transactionMemo, String transactionType, double transactionAmount) {
+    public Transactions(int transactionId, int accountIdTransaction, String transactionType, double transactionAmount, Accounts account) {
         this.transactionId = transactionId;
         this.accountIdTransaction = accountIdTransaction;
-        this.accountIdTransactionRecipient = accountIdTransactionRecipient;
-        this.transactionMemo = transactionMemo;
         this.transactionType = transactionType;
         this.transactionAmount = transactionAmount;
+        this.account = account;
     }
 
-    public Transactions(int transactionId, int accountIdTransactionRecipient, String transactionMemo, String transactionType, double transactionAmount) {
+    public Transactions(int transactionId, int accountIdTransaction, String transactionType, double transactionAmount) {
         this.transactionId = transactionId;
-        this.accountIdTransactionRecipient = accountIdTransactionRecipient;
-        this.transactionMemo = transactionMemo;
-        this.transactionType = transactionType;
-        this.transactionAmount = transactionAmount;
-    }
-
-    public Transactions(int transactionId, int accountIdTransactionRecipient, String transactionType, double transactionAmount) {
-        this.transactionId = transactionId;
-        this.accountIdTransactionRecipient = accountIdTransactionRecipient;
+        this.accountIdTransaction = accountIdTransaction;
         this.transactionType = transactionType;
         this.transactionAmount = transactionAmount;
     }
@@ -64,28 +54,13 @@ public class Transactions {
         this.transactionId = transactionId;
     }
 
-    public int getAccountIdTransactionSender() {
+
+    public int getAccountIdTransaction() {
         return accountIdTransaction;
     }
 
-    public void setAccountIdTransactionSender(int accountIdTransactionSender) {
-        this.accountIdTransaction = accountIdTransactionSender;
-    }
-
-    public int getAccountIdTransactionRecipient() {
-        return accountIdTransactionRecipient;
-    }
-
-    public void setAccountIdTransactionRecipient(int accountIdTransactionRecipient) {
-        this.accountIdTransactionRecipient = accountIdTransactionRecipient;
-    }
-
-    public String getTransactionMemo() {
-        return transactionMemo;
-    }
-
-    public void setTransactionMemo(String transactionMemo) {
-        this.transactionMemo = transactionMemo;
+    public void setAccountIdTransaction(int accountIdTransaction) {
+        this.accountIdTransaction = accountIdTransaction;
     }
 
     public String getTransactionType() {
@@ -104,15 +79,22 @@ public class Transactions {
         this.transactionAmount = transactionAmount;
     }
 
+    public Accounts getAccount() {
+        return account;
+    }
+
+    public void setAccount(Accounts account) {
+        this.account = account;
+    }
+
     @Override
     public String toString() {
         return "Transactions{" +
                 "transactionId=" + transactionId +
-                ", accountIdTransactionSender=" + accountIdTransaction +
-                ", accountIdTransactionRecipient=" + accountIdTransactionRecipient +
-                ", transactionMemo='" + transactionMemo + '\'' +
+                ", accountIdTransaction=" + accountIdTransaction +
                 ", transactionType='" + transactionType + '\'' +
                 ", transactionAmount=" + transactionAmount +
+                ", account=" + account +
                 '}';
     }
 }

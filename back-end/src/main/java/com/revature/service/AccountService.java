@@ -15,8 +15,13 @@ public class AccountService {
         this.accountDAO = accountDAO;
     }
 
-    public void depositMoney(Accounts a, double transactionAmount) {
+    public void depositMoney(Accounts a, Double transactionAmount) {
         a.setAccountBalance(a.getAccountBalance() + transactionAmount);
+        accountDAO.updateAccount(a);
+    }
+
+    public void withdrawMoney(Accounts a, Double transactionAmount) {
+        a.setAccountBalance(a.getAccountBalance() - transactionAmount);
         accountDAO.updateAccount(a);
     }
 

@@ -4,8 +4,8 @@ import com.revature.daos.AccountsDAO;
 import com.revature.daos.TransactionsDAO;
 import com.revature.models.Accounts;
 import com.revature.models.Transactions;
+import com.revature.models.Users;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,15 +27,11 @@ public class TransactionsController {
         this.tDAO = tDAO;
     }
 
-//    @Autowired
-//    private TransactionService transactionService;
-
     //HTTP Requests-------------------------------
 
     //insert digimon - every POST request to /digimon will go here
 
     @PostMapping(value="/submitTransaction")
-    //url: localhost:5556/data/transactions/submitTransaction
     public ResponseEntity submitTransaction(@RequestBody Transactions t){
 
         //Thanks to @RequestBody, our Digimon d parameter is filled with the body of the HTTP Request
@@ -54,8 +50,8 @@ public class TransactionsController {
     }
 
     @GetMapping (value="/getAllTransactions")
-    //url: localhost:5556/data/transactions/getAllTransactions
-    public ResponseEntity<List<Transactions>> getAllTransactions(){
+    //url: localhost:5556/data/accounts/getAllAccounts
+    public ResponseEntity<List<Transactions>> getAllAccounts(){
 
         return ResponseEntity.ok(tDAO.findAll()); //.ok() returns a 200 level status code
 
@@ -84,7 +80,6 @@ public class TransactionsController {
     }
 
 
-
-
-
 }
+
+

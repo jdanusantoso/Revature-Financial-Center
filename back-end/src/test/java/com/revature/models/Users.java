@@ -30,15 +30,10 @@ public class Users {
 
     @Column(nullable = false, unique = true)
     private String password;
-/*
 
-    //FK relationship
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "accountId")
+    //FK
 
-    private Accounts account;
 
-*/
     public Users() {
     }
 
