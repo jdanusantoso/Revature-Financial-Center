@@ -22,7 +22,21 @@ public class Transactions {
     @Column(nullable = false, columnDefinition="Decimal(10,2)")
     private double transactionAmount;
 
+    //FK relationship that shows many transactions to 1 account
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "accountId")
+
+    private Accounts account;
+
     public Transactions() {
+    }
+
+    public Transactions(int transactionId, int accountIdTransaction, String transactionType, double transactionAmount, Accounts account) {
+        this.transactionId = transactionId;
+        this.accountIdTransaction = accountIdTransaction;
+        this.transactionType = transactionType;
+        this.transactionAmount = transactionAmount;
+        this.account = account;
     }
 
     public Transactions(int transactionId, int accountIdTransaction, String transactionType, double transactionAmount) {
@@ -65,6 +79,14 @@ public class Transactions {
         this.transactionAmount = transactionAmount;
     }
 
+    public Accounts getAccount() {
+        return account;
+    }
+
+    public void setAccount(Accounts account) {
+        this.account = account;
+    }
+
     @Override
     public String toString() {
         return "Transactions{" +
@@ -72,6 +94,7 @@ public class Transactions {
                 ", accountIdTransaction=" + accountIdTransaction +
                 ", transactionType='" + transactionType + '\'' +
                 ", transactionAmount=" + transactionAmount +
+                ", account=" + account +
                 '}';
     }
 }

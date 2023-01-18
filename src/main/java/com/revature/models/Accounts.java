@@ -34,35 +34,49 @@ public class Accounts {
     @Column(columnDefinition="Decimal(10,2)")
     private double accountBalance;
 
+    @Column(columnDefinition="Decimal(10,2)")
+    private double accountRecipientBalance;
 
-    //FK relationship
+
+    //FK relationship that shows many accounts to 1 user
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "transactionId")
+    @JoinColumn(name = "userId")
 
-    private Transactions transaction;
+    private Users users;
 
     public Accounts() {
     }
 
-    //All fields in constructor
-    public Accounts(int accountId, int accountIdRecipient, String accountHolder, String accountHolderRecipient, double transactionAmount, double accountBalance, Transactions transaction) {
+    public Accounts(int accountId, int accountIdRecipient, String accountHolder, String accountHolderRecipient, double transactionAmount, double accountBalance, double accountRecipientBalance, Users users) {
         this.accountId = accountId;
         this.accountIdRecipient = accountIdRecipient;
         this.accountHolder = accountHolder;
         this.accountHolderRecipient = accountHolderRecipient;
         this.transactionAmount = transactionAmount;
         this.accountBalance = accountBalance;
-        this.transaction = transaction;
+        this.accountRecipientBalance = accountRecipientBalance;
+        this.users = users;
+    }
+
+    //All fields in constructor
+    public Accounts(int accountId, int accountIdRecipient, String accountHolder, String accountHolderRecipient, double transactionAmount, double accountBalance, Users users) {
+        this.accountId = accountId;
+        this.accountIdRecipient = accountIdRecipient;
+        this.accountHolder = accountHolder;
+        this.accountHolderRecipient = accountHolderRecipient;
+        this.transactionAmount = transactionAmount;
+        this.accountBalance = accountBalance;
+        this.users = users;
     }
 
     //Constructor for depositing/withdrawing money
-    public Accounts(int accountId, String accountHolder, String accountHolderRecipient, double transactionAmount, double accountBalance, Transactions transaction) {
+    public Accounts(int accountId, String accountHolder, String accountHolderRecipient, double transactionAmount, double accountBalance, Users users) {
         this.accountId = accountId;
         this.accountHolder = accountHolder;
         this.accountHolderRecipient = accountHolderRecipient;
         this.transactionAmount = transactionAmount;
         this.accountBalance = accountBalance;
-        this.transaction = transaction;
+        this.users = users;
     }
 
     //Constructor for transfering money
@@ -86,19 +100,19 @@ public class Accounts {
         this.accountBalance = accountBalance;
     }
 
-    public Accounts(int accountId, String accountHolder, double transactionAmount, double accountBalance, Transactions transaction) {
+    public Accounts(int accountId, String accountHolder, double transactionAmount, double accountBalance, Users users) {
         this.accountId = accountId;
         this.accountHolder = accountHolder;
         this.transactionAmount = transactionAmount;
         this.accountBalance = accountBalance;
-        this.transaction = transaction;
+        this.users = users;
     }
 
-    public Accounts(int accountId, String accountHolder, double accountBalance, Transactions transaction) {
+    public Accounts(int accountId, String accountHolder, double accountBalance, Users users) {
         this.accountId = accountId;
         this.accountHolder = accountHolder;
         this.accountBalance = accountBalance;
-        this.transaction = transaction;
+        this.users = users;
     }
 
     public Accounts(int accountId, String accountHolder, double accountBalance) {
@@ -155,24 +169,33 @@ public class Accounts {
         this.accountBalance = accountBalance;
     }
 
-    public Transactions getTransaction() {
-        return transaction;
+    public double getAccountRecipientBalance() {
+        return accountRecipientBalance;
     }
 
-    public void setTransaction(Transactions transaction) {
-        this.transaction = transaction;
+    public void setAccountRecipientBalance(double accountRecipientBalance) {
+        this.accountRecipientBalance = accountRecipientBalance;
+    }
+
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
     }
 
     @Override
     public String toString() {
         return "Accounts{" +
                 "accountId=" + accountId +
-                ", accountIdRecipient='" + accountIdRecipient + '\'' +
+                ", accountIdRecipient=" + accountIdRecipient +
                 ", accountHolder='" + accountHolder + '\'' +
                 ", accountHolderRecipient='" + accountHolderRecipient + '\'' +
                 ", transactionAmount=" + transactionAmount +
                 ", accountBalance=" + accountBalance +
-                ", transaction=" + transaction +
+                ", accountRecipientBalance=" + accountRecipientBalance +
+                ", users=" + users +
                 '}';
     }
 }
