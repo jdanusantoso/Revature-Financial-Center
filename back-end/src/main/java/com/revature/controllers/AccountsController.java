@@ -1,6 +1,7 @@
 package com.revature.controllers;
 
 import com.revature.daos.AccountsDAO;
+import com.revature.exception.OverDraftException;
 import com.revature.models.Accounts;
 import com.revature.models.Transactions;
 import com.revature.service.AccountService;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.InvalidPropertiesFormatException;
 import java.util.List;
 import java.util.Optional;
 
@@ -63,15 +65,15 @@ public class AccountsController {
 
     }
 
-    @GetMapping(value="/id/{id}")
-    //url : localhost:5556/data/accounts/id/1
-    public ResponseEntity<Accounts> findById(@PathVariable int id){
+    @GetMapping(value="/accountId/{accountId}")
+    //url : localhost:5556/data/accounts/accountId/1
+    public ResponseEntity<Accounts> findById(@PathVariable int accountId){
 
         /* findById from JpaRepository returns an Optional
           Optionals lend to code flexibility because it MAY OR MAY NOT have the request object.
           This helps us avoid NullPointerExceptions
          */
-        Optional<Accounts> accountOptional = aDAO.findById(id);
+        Optional<Accounts> accountOptional = aDAO.findById(accountId);
 
         //we can check if the optional has data with .isPresent(), or .isEmpty()
         if(accountOptional.isPresent()){
@@ -83,6 +85,29 @@ public class AccountsController {
         //if get by ID failed...
         return ResponseEntity.badRequest().build(); //returning a 400 with no response body
     }
+
+    @GetMapping(value="/accountIdRecipient/{accountIdRecipient}")
+    //url : localhost:5556/data/accounts/accountId/1
+    public ResponseEntity<Accounts> findByAccountIdRecipient(@PathVariable int accountIdRecipient){
+
+        /* findById from JpaRepository returns an Optional
+          Optionals lend to code flexibility because it MAY OR MAY NOT have the request object.
+          This helps us avoid NullPointerExceptions
+         */
+        Optional<Accounts> accountRecipientOptional = aDAO.findById(accountIdRecipient);
+
+        //we can check if the optional has data with .isPresent(), or .isEmpty()
+        if(accountRecipientOptional.isPresent()){
+            //we can extract the Optional's data with .get()
+            Accounts extractedAccount = accountRecipientOptional.get();
+
+            return ResponseEntity.ok(extractedAccount);
+        }
+        //if get by ID failed...
+        return ResponseEntity.badRequest().build(); //returning a 400 with no response body
+    }
+
+
 
     @GetMapping(value="/accountHolder/{accountHolder}")
     // localhost:5556/data/accounts/accountHolder/someone's name
@@ -102,6 +127,30 @@ public class AccountsController {
 
     }
 
+    @PatchMapping(value="/deposit/{accountId}")
+    //url: localhost:5556/data/transactions/submitTransaction
+    public ResponseEntity depositMoney(@PathVariable int accountId, @RequestBody Accounts a, double transactionAmount){
+
+       Accounts updateAccountBalance = aDAO.findByAccountId(accountId);
+
+//        Accounts updateRecipientAccountBalance = aDAO.findByAccountRecipientId(accountRecipientId);
+
+
+
+
+//        Accounts updateWithdrawBalance;
+        updateAccountBalance.setAccountBalance(updateAccountBalance.getAccountBalance() - transactionAmount);
+//        updateRecipientAccountBalance.setAccountRecipientBalance(updateRecipientAccountBalance.getAccountRecipientBalance() + transactionAmount);
+
+        aDAO.save(updateAccountBalance);
+//        aDAO.save(updateRecipientAccountBalance);
+
+        return ResponseEntity.ok(updateAccountBalance);
+
+    }
+
+    /*---------------------------------------------------------------------------------------*/
+/*
     @PostMapping(value="/deposit")
     //url: localhost:5556/data/transactions/submitTransaction
     public ResponseEntity depositMoney(@RequestBody Accounts a, double transactionAmount){
@@ -167,6 +216,6 @@ public class AccountsController {
     }
 
 
-
+*/
 
 }

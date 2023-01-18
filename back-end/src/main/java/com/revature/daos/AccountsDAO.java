@@ -22,4 +22,8 @@ public interface AccountsDAO extends JpaRepository<Accounts, Integer> {
     @Modifying
     @Query("update Accounts a set a.accountBalance = ?1 where a.accountId = ?2")
     public void updateAccount(Accounts a);
+
+    Accounts findByAccountId(int accountId);
+
+    Accounts findByAccountIdRecipient(int accountIdRecipient);
 }

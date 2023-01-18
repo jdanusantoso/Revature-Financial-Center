@@ -49,7 +49,11 @@ const Login: React.FC<any> = () => {
           user.password = response.data[0].password;
 
           console.log(response.data[0].userId);
+<<<<<<< HEAD
           navigate("/dashboard");
+=======
+          //navigate("/dashboard");
+>>>>>>> sergioBranch
           //if the user logged in successfully, their userId won't be 0.
         }
       } else {
