@@ -20,4 +20,9 @@ public class AccountService {
         accountDAO.updateAccount(a);
     }
 
+    public void withdrawMoney(Accounts a, Double transactionAmount) {
+        a.setAccountBalance(a.getAccountBalance() - transactionAmount);
+        accountDAO.updateAccount(a);
+    }
+
 }

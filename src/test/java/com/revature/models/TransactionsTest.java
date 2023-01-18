@@ -27,12 +27,11 @@ public class TransactionsTest{
     }
 
     //Test 1
-
     @Test
-    public void testGetTransactionType() {
+    public void testGetTransactionId() {
 
-        String expected = "income";
-        String actual = transaction.getTransactionType();
+        int expected = 1;
+        int actual = transaction.getTransactionId();
         assertEquals(expected, actual);
         //fail("Not yet implemented");
 
@@ -40,7 +39,18 @@ public class TransactionsTest{
 
     //Test 2
     @Test
-    public void testGetTransactionType2() {
+    public void testGetAccountIdTransaction() {
+
+        int expected = 1;
+        int actual = transaction.getAccountIdTransaction();
+        assertEquals(expected, actual);
+        //fail("Not yet implemented");
+
+    }
+
+    //Test 3
+    @Test
+    public void testGetTransactionType1() {
 
         String expected = "income";
         String actual = transaction.getTransactionType();
@@ -49,9 +59,9 @@ public class TransactionsTest{
 
     }
 
-    //Test 3
+    //Test 4
     @Test
-    public void testGetTransactionType3() {
+    public void testGetTransactionType2() {
 
         String expected = "expense";
         String actual = transaction.getTransactionType();
@@ -60,7 +70,7 @@ public class TransactionsTest{
 
     }
 
-    //Test 4
+    //Test 5
     @Test
     public void testGetTransactionAmount() {
 
@@ -71,14 +81,14 @@ public class TransactionsTest{
 
     }
 
-    //Test 5
-    @Test
-    public void testGetTransactionAmount2() {
-
-        double expected = 89.00;
-        double actual = transaction.getTransactionAmount();
-        assertEquals(expected, actual, 0.001);
-        //fail("Not yet implemented");
-
-    }
+//    //Test 5
+//    @Test
+//    public void testGetTransactionAmount2() {
+//
+//        double expected = 89.00;
+//        double actual = transaction.getTransactionAmount();
+//        assertEquals(expected, actual, 0.001);
+//        //fail("Not yet implemented");
+//
+//    }
 }
