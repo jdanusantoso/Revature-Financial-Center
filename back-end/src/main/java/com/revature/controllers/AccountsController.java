@@ -73,6 +73,7 @@ public class AccountsController {
           Optionals lend to code flexibility because it MAY OR MAY NOT have the request object.
           This helps us avoid NullPointerExceptions
          */
+        System.out.println(accountId);
         Optional<Accounts> accountOptional = aDAO.findById(accountId);
 
         //we can check if the optional has data with .isPresent(), or .isEmpty()
@@ -90,6 +91,7 @@ public class AccountsController {
     //url : localhost:5556/data/accounts/accountId/1
     public ResponseEntity<Accounts> findByAccountIdRecipient(@PathVariable int accountIdRecipient){
 
+        System.out.println(accountIdRecipient);
         /* findById from JpaRepository returns an Optional
           Optionals lend to code flexibility because it MAY OR MAY NOT have the request object.
           This helps us avoid NullPointerExceptions

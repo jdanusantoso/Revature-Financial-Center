@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./login.css";
 import { useNavigate } from "react-router-dom";
-import Register from "../Register/register";
-import Dashboard from "../Dashboard/dashboard";
 
 const Login: React.FC<any> = () => {
   const [error, setError] = useState("");
@@ -49,7 +47,7 @@ const Login: React.FC<any> = () => {
           user.password = response.data[0].password;
 
           console.log(response.data[0].userId);
-          //navigate("/dashboard");
+          navigate("/dashboard");
           //if the user logged in successfully, their userId won't be 0.
         }
       } else {
@@ -61,11 +59,6 @@ const Login: React.FC<any> = () => {
     }
   };
 
-  const status = {
-    loading: "loading your data",
-    updating: "updating your data",
-    updated: "your data is updated",
-  };
   return (
     <div className="login">
       {error && <p className="error-message">{error}</p>}
