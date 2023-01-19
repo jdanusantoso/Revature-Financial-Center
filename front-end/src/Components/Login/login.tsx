@@ -31,6 +31,7 @@ const Login: React.FC<any> = () => {
     }
   };
 
+ 
   const login = async () => {
     //send an HTTP POST request with axios, and store the response in a variable that we can use
     try {
@@ -42,6 +43,7 @@ const Login: React.FC<any> = () => {
       if (response.status === 200) {
         if (response.data[0] == null) {
           console.log("Error");
+          setError("Username or Password is Incorrect, Please try again!")
         } else {
           //populate our user object from above with the incoming data from the server
           user.userId = response.data[0].userId;
@@ -49,11 +51,7 @@ const Login: React.FC<any> = () => {
           user.password = response.data[0].password;
 
           console.log(response.data[0].userId);
-<<<<<<< HEAD
           navigate("/dashboard");
-=======
-          //navigate("/dashboard");
->>>>>>> sergioBranch
           //if the user logged in successfully, their userId won't be 0.
         }
       } else {

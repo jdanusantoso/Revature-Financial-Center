@@ -1,5 +1,7 @@
 import React from 'react'
-import { useState } from 'react';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+
 import { useNavigate } from 'react-router-dom'
 
  const Profile = () => {
@@ -26,7 +28,7 @@ import { useNavigate } from 'react-router-dom'
     });
   }
   };
- 
+
   const handleEdit = () => {
     setEditing(!editing);
   };
@@ -59,15 +61,17 @@ import { useNavigate } from 'react-router-dom'
 
         
         <div className="form-group">
-          <label htmlFor="name">Name:</label>
+          <label htmlFor="firstame">Name:</label>
           <input
             type="text"
             name="name"
             id="name"
-            value={user.name}
+            value={user.firsname}
             onChange={handleChange}
           />
         </div>
+
+  
         <div className="form-group">
           <label htmlFor="email">Email:</label>
           <input

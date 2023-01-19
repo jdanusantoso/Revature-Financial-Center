@@ -22,8 +22,19 @@ const Register = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  const validateForm = () => {
+    if (!username || !password || !firstName || !lastName || !email) {
+      return false;
+    }
+    return true;
+  };
+
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+    if (!validateForm()) {
+      setError("All fields are required");
+      return;
+    }
 
     try {
       const response = await axios.post(
@@ -64,7 +75,7 @@ const Register = () => {
               value={username}
               type="text"
               placeholder="Username"
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) => setUsername(e.target.value)} required
             />
           </div>
 
@@ -73,7 +84,7 @@ const Register = () => {
               value={password}
               type="password"
               placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)} required
             />
           </div>
 
@@ -82,7 +93,7 @@ const Register = () => {
               value={firstName}
               type="text"
               placeholder="firstName"
-              onChange={(e) => setfirstName(e.target.value)}
+              onChange={(e) => setfirstName(e.target.value)} required
             />
           </div>
 
@@ -91,7 +102,7 @@ const Register = () => {
               value={lastName}
               type="text"
               placeholder="Lastname"
-              onChange={(e) => setLastname(e.target.value)}
+              onChange={(e) => setLastname(e.target.value)} required
             />
           </div>
 
@@ -100,14 +111,14 @@ const Register = () => {
               value={email}
               type="email"
               placeholder="Email"
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)} required
             />
           </div>
 
           <button className="reg-button">Register</button>
         </form>
 
-        <button onClick={() => navigate("/dashboard")}>Home</button>
+        <button onClick={() => navigate("/")}>Home</button>
       </div>
     </div>
   );
