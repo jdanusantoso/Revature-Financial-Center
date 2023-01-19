@@ -4,7 +4,6 @@ import com.revature.daos.UserDAO;
 import com.revature.exception.UserDoesNotExistException;
 import com.revature.exception.UserNotFoundException;
 import com.revature.models.Users;
-import com.revature.service.AccountService;
 import com.revature.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

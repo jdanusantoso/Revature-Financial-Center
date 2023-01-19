@@ -12,11 +12,10 @@ import java.util.Optional;
 public class UserService {
 
     private UserDAO userDao;
-    private AccountService accountService;
 
-    public UserService(UserDAO userDao, AccountService accountService) {
+    public UserService(UserDAO userDao) {
         this.userDao = userDao;
-        this.accountService = accountService;
+
     }
 
     public Optional<List<Users>> loginUser(String username, String password) throws UserDoesNotExistException {

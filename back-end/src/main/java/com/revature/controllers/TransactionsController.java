@@ -17,8 +17,6 @@ import java.util.Optional;
 @RequestMapping(value="/transactions")
 public class TransactionsController {
 
-    //autowiring the DigimonDAO with constructor injection
-
     private final TransactionsDAO tDAO;
 
     @Autowired
@@ -29,18 +27,12 @@ public class TransactionsController {
 
     //HTTP Requests-------------------------------
 
-    //insert digimon - every POST request to /digimon will go here
-
     @PostMapping(value="/submitTransaction")
     public ResponseEntity submitTransaction(@RequestBody Transactions t){
 
-        //Thanks to @RequestBody, our Digimon d parameter is filled with the body of the HTTP Request
-        //Automatic JSON conversion :)
-
-        //the save() method from our DAO is how we can insert new data
         Transactions newTransaction = tDAO.save(t);
 
-        //if insert failed...
+
         if(newTransaction == null){
             return ResponseEntity.badRequest().build(); //send a 400 status code, and no response body
         }
@@ -55,8 +47,6 @@ public class TransactionsController {
 
         return ResponseEntity.ok(tDAO.findAll()); //.ok() returns a 200 level status code
 
-        //note that I'm nesting the DB call in the actual return
-        //this is shorthand - I could have done .ok().body(dDAO.findAll());
 
     }
 
@@ -67,15 +57,14 @@ public class TransactionsController {
 
         Optional<List<Transactions>> transactionOptional = tDAO.getByAccountIdTransactionAndTransactionType(accountIdTransaction, transactionType );
 
-        //we can check if the optional has data with .isPresent(), or .isEmpty()
         if(transactionOptional.isPresent()){
-            //we can extract the Optional's data with .get()
+
             List<Transactions> extractedTransaction = transactionOptional.get();
 
             return ResponseEntity.ok(extractedTransaction);
         }
-        //if get by name failed...
-        return ResponseEntity.badRequest().build(); //returning a 400 with no response body
+
+        return ResponseEntity.badRequest().build();
 
     }
 
