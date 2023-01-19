@@ -127,11 +127,33 @@ public class AccountsController {
 
     }
 
-    @PatchMapping(value="/deposit/{accountId}")
-    //url: localhost:5556/data/transactions/submitTransaction
-    public ResponseEntity depositMoney(@PathVariable int accountId, @RequestBody Accounts a, double transactionAmount){
+    @PatchMapping(value="/deposit/{accountId}/{transactionAmount}")
+    //url: localhost:5556/data/accounts/deposit/1/25.69
+    public ResponseEntity depositMoney(@PathVariable int accountId, @RequestBody Accounts a, @PathVariable double transactionAmount){
 
-       Accounts updateAccountBalance = aDAO.findByAccountId(accountId);
+        Accounts updateAccountBalance = aDAO.findByAccountId(accountId);
+
+//        Accounts updateRecipientAccountBalance = aDAO.findByAccountRecipientId(accountRecipientId);
+
+
+
+
+//        Accounts updateWithdrawBalance;
+        updateAccountBalance.setAccountBalance(updateAccountBalance.getAccountBalance() + transactionAmount);
+//        updateRecipientAccountBalance.setAccountRecipientBalance(updateRecipientAccountBalance.getAccountRecipientBalance() + transactionAmount);
+
+        aDAO.save(updateAccountBalance);
+//        aDAO.save(updateRecipientAccountBalance);
+
+        return ResponseEntity.ok(updateAccountBalance);
+
+    }
+
+    @PatchMapping(value="/withdraw/{accountId}/{transactionAmount}")
+    //url: localhost:5556/data/accounts/withdraw/1/25.69
+    public ResponseEntity withdrawMoney(@PathVariable int accountId, @RequestBody Accounts a, @PathVariable double transactionAmount){
+
+        Accounts updateAccountBalance = aDAO.findByAccountId(accountId);
 
 //        Accounts updateRecipientAccountBalance = aDAO.findByAccountRecipientId(accountRecipientId);
 
@@ -148,6 +170,7 @@ public class AccountsController {
         return ResponseEntity.ok(updateAccountBalance);
 
     }
+
 
     /*---------------------------------------------------------------------------------------*/
 /*
