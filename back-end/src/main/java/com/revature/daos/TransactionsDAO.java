@@ -10,8 +10,6 @@ import java.util.Optional;
 
 public interface TransactionsDAO extends JpaRepository<Transactions, Integer> {
 
-    //This is our entire DAO for now... showing custom DAO method below
-
     public Optional<List<Transactions>> getByAccountIdTransactionAndTransactionType(int accountIdTransaction, String transactionType);
 
 

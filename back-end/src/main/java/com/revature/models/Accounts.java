@@ -18,24 +18,14 @@ public class Accounts {
     //non-id columns don't technically need any annotation at all
     //BUT @Column is good for clarity and any constraints you may need
 
-    @Column //now this column has a not null constraint
-    private int accountIdRecipient;
-
     @Column(nullable = false) //now this column has a not null constraint
     private String accountHolder;
-
-    @Column //now this column has a not null constraint
-    private String accountHolderRecipient;
-
 
     @Column(columnDefinition="Decimal(10,2)")
     private double transactionAmount;
 
     @Column(columnDefinition="Decimal(10,2)")
     private double accountBalance;
-
-    @Column(columnDefinition="Decimal(10,2)")
-    private double accountRecipientBalance;
 
 
     //FK relationship that shows many accounts to 1 user
@@ -47,59 +37,9 @@ public class Accounts {
     public Accounts() {
     }
 
-    public Accounts(int accountId, int accountIdRecipient, String accountHolder, String accountHolderRecipient, double transactionAmount, double accountBalance, double accountRecipientBalance, Users users) {
-        this.accountId = accountId;
-        this.accountIdRecipient = accountIdRecipient;
-        this.accountHolder = accountHolder;
-        this.accountHolderRecipient = accountHolderRecipient;
-        this.transactionAmount = transactionAmount;
-        this.accountBalance = accountBalance;
-        this.accountRecipientBalance = accountRecipientBalance;
-        this.users = users;
-    }
+
 
     //All fields in constructor
-    public Accounts(int accountId, int accountIdRecipient, String accountHolder, String accountHolderRecipient, double transactionAmount, double accountBalance, Users users) {
-        this.accountId = accountId;
-        this.accountIdRecipient = accountIdRecipient;
-        this.accountHolder = accountHolder;
-        this.accountHolderRecipient = accountHolderRecipient;
-        this.transactionAmount = transactionAmount;
-        this.accountBalance = accountBalance;
-        this.users = users;
-    }
-
-    //Constructor for depositing/withdrawing money
-    public Accounts(int accountId, String accountHolder, String accountHolderRecipient, double transactionAmount, double accountBalance, Users users) {
-        this.accountId = accountId;
-        this.accountHolder = accountHolder;
-        this.accountHolderRecipient = accountHolderRecipient;
-        this.transactionAmount = transactionAmount;
-        this.accountBalance = accountBalance;
-        this.users = users;
-    }
-
-    //Constructor for transfering money
-
-    public Accounts(int accountId, int accountIdRecipient, double transactionAmount) {
-        this.accountId = accountId;
-        this.accountIdRecipient = accountIdRecipient;
-        this.transactionAmount = transactionAmount;
-    }
-
-
-    //Constructor for sending money
-
-
-    public Accounts(int accountId, int accountIdRecipient, String accountHolder, String accountHolderRecipient, double transactionAmount, double accountBalance) {
-        this.accountId = accountId;
-        this.accountIdRecipient = accountIdRecipient;
-        this.accountHolder = accountHolder;
-        this.accountHolderRecipient = accountHolderRecipient;
-        this.transactionAmount = transactionAmount;
-        this.accountBalance = accountBalance;
-    }
-
     public Accounts(int accountId, String accountHolder, double transactionAmount, double accountBalance, Users users) {
         this.accountId = accountId;
         this.accountHolder = accountHolder;
@@ -108,6 +48,7 @@ public class Accounts {
         this.users = users;
     }
 
+    //Constructor for creating accounts
     public Accounts(int accountId, String accountHolder, double accountBalance, Users users) {
         this.accountId = accountId;
         this.accountHolder = accountHolder;
@@ -115,7 +56,15 @@ public class Accounts {
         this.users = users;
     }
 
+
+    //Constructor for depositing/withdrawing money
+
     public Accounts(int accountId, String accountHolder, double accountBalance) {
+        this.accountId = accountId;
+        this.accountHolder = accountHolder;
+        this.accountBalance = accountBalance;
+    }
+    public Accounts(int accountId, double accountBalance) {
         this.accountId = accountId;
         this.accountHolder = accountHolder;
         this.accountBalance = accountBalance;
@@ -129,14 +78,6 @@ public class Accounts {
         this.accountId = accountId;
     }
 
-    public int getAccountIdRecipient() {
-        return accountIdRecipient;
-    }
-
-    public void setAccountIdRecipient(int accountIdRecipient) {
-        this.accountIdRecipient = accountIdRecipient;
-    }
-
     public String getAccountHolder() {
         return accountHolder;
     }
@@ -145,13 +86,6 @@ public class Accounts {
         this.accountHolder = accountHolder;
     }
 
-    public String getAccountHolderRecipient() {
-        return accountHolderRecipient;
-    }
-
-    public void setAccountHolderRecipient(String accountHolderRecipient) {
-        this.accountHolderRecipient = accountHolderRecipient;
-    }
 
     public double getTransactionAmount() {
         return transactionAmount;
@@ -169,13 +103,6 @@ public class Accounts {
         this.accountBalance = accountBalance;
     }
 
-    public double getAccountRecipientBalance() {
-        return accountRecipientBalance;
-    }
-
-    public void setAccountRecipientBalance(double accountRecipientBalance) {
-        this.accountRecipientBalance = accountRecipientBalance;
-    }
 
     public Users getUsers() {
         return users;
@@ -189,12 +116,9 @@ public class Accounts {
     public String toString() {
         return "Accounts{" +
                 "accountId=" + accountId +
-                ", accountIdRecipient=" + accountIdRecipient +
                 ", accountHolder='" + accountHolder + '\'' +
-                ", accountHolderRecipient='" + accountHolderRecipient + '\'' +
                 ", transactionAmount=" + transactionAmount +
                 ", accountBalance=" + accountBalance +
-                ", accountRecipientBalance=" + accountRecipientBalance +
                 ", users=" + users +
                 '}';
     }

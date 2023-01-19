@@ -2,12 +2,21 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import Account from '../Account/account'
 import Profile from '../Profile/profile'
+import { useState } from 'react'
 
 import"./dashboard.css"
 
 const Dashboard: React.FC = () => {
 
   const navigate = useNavigate()
+
+  const [error, setError] = useState("");
+
+  const logout = () => {
+    setError("");
+    navigate("/");
+  };
+
 
   return (
     <div className='dashCont'>
@@ -37,7 +46,10 @@ const Dashboard: React.FC = () => {
 
       <div className='depo'>
             <button className='send' onClick={() => navigate('/Send')}>Send Money</button>
-    </div>   
+    </div> 
+
+
+      <button className="logout-button" onClick={logout}>Logout</button>
             
 
     </div>

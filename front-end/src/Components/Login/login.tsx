@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./login.css";
 import { useNavigate } from "react-router-dom";
+import Register from "../Register/register";
+import Dashboard from "../Dashboard/dashboard";
 
 const Login: React.FC<any> = () => {
   const [error, setError] = useState("");
@@ -29,6 +31,7 @@ const Login: React.FC<any> = () => {
     }
   };
 
+ 
   const login = async () => {
     //send an HTTP POST request with axios, and store the response in a variable that we can use
     try {
@@ -40,6 +43,7 @@ const Login: React.FC<any> = () => {
       if (response.status === 200) {
         if (response.data[0] == null) {
           console.log("Error");
+          setError("Username or Password is Incorrect, Please try again!")
         } else {
           //populate our user object from above with the incoming data from the server
           user.userId = response.data[0].userId;
@@ -59,6 +63,11 @@ const Login: React.FC<any> = () => {
     }
   };
 
+  const status = {
+    loading: "loading your data",
+    updating: "updating your data",
+    updated: "your data is updated",
+  };
   return (
     <div className="login">
       {error && <p className="error-message">{error}</p>}

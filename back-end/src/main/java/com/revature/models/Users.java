@@ -13,8 +13,6 @@ public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //This makes our PK serial
     private int userId;
 
-    //non-id columns don't technically need any annotation at all
-    //BUT @Column is good for clarity and any constraints you may need
 
     @Column //now this column has a not null constraint
     private String firstName;
@@ -30,15 +28,7 @@ public class Users {
 
     @Column(nullable = false, unique = true)
     private String password;
-/*
 
-    //FK relationship
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "accountId")
-
-    private Accounts account;
-
-*/
     public Users() {
     }
 
