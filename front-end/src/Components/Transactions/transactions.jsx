@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios';
 
 export const Transactions = () => {
   const [transactions, setTransactions] = useState([]);
@@ -10,7 +11,7 @@ export const Transactions = () => {
 
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const { type, amount } = newTransaction;
     if (type === 'income') {
@@ -18,9 +19,23 @@ export const Transactions = () => {
     } else {
       setExpenses(expenses + parseFloat(amount));
     }
-    setTransactions([...transactions, newTransaction]);
+
+
+    try {
+      await axios.post("http://localhost:5556/", newTransaction);
+      setTransactions([...transactions, newTransaction]);
+      setNewTransaction({ type: '', amount: '' });
+    } catch (error) {
+      console.log(error);
+    }
+
+
+
+  setTransactions([...transactions, newTransaction]);
     setNewTransaction({ type: '', amount: '' });
   };
+
+  
 
   const handleChange = (event) => {
     setNewTransaction({
