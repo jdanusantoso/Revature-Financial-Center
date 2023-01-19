@@ -5,9 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8230e5a9-f672-4904-bf51-b334fc3d296c" name="Changes" comment="backend clean up">
-      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/revature/controllers/AccountsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/revature/controllers/AccountsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/revature/controllers/RequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/revature/controllers/RequestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/revature/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/revature/controllers/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/src/test/java/com/revature/models/UsersTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/revature/models/Transactions.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/revature/models/Transactions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/test/java/com/revature/BankingApp1ApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/test/java/com/revature/BankingApp1ApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/test/java/com/revature/daos/AccountsDAOTesting.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/test/java/com/revature/models/Accounts.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/test/java/com/revature/models/TransactionsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/test/java/com/revature/models/TransactionsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/test/java/com/revature/models/Users.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/test/java/com/revature/service/AccountServiceTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/test/java/com/revature/service/AccountServiceTesting.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,13 +40,13 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Jef Danusantoso/Desktop/Spring/BankingApp1&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Jef Danusantoso/Desktop/Spring/BankingAppFinal/back-end/src/test/java"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.revature.daos" />
@@ -51,7 +57,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="77474628-c34a-435a-9915-5c354755d930" name="Changes" comment="" />
+      <changelist id="8230e5a9-f672-4904-bf51-b334fc3d296c" name="Changes" comment="backend clean up" />
       <created>1674081933199</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -64,7 +70,21 @@
       <option name="project" value="LOCAL" />
       <updated>1674110401234</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="backend clean up">
+      <created>1674110695180</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1674110695180</updated>
+    </task>
+    <task id="LOCAL-00003" summary="backend clean up">
+      <created>1674110857668</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1674110857668</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
