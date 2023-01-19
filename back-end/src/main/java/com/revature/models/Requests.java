@@ -29,7 +29,7 @@ public class Requests {
     private double transactionAmount;
 
     //FK relationship that shows many transactions to 1 account
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "accountId")
 
     private Accounts account;

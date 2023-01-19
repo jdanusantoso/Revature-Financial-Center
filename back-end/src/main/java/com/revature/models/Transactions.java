@@ -23,7 +23,7 @@ public class Transactions {
     private double transactionAmount;
 
     //FK relationship that shows many transactions to 1 account
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "accountId")
 
     private Accounts account;
@@ -33,6 +33,13 @@ public class Transactions {
 
     public Transactions(int transactionId, int accountIdTransaction, String transactionType, double transactionAmount, Accounts account) {
         this.transactionId = transactionId;
+        this.accountIdTransaction = accountIdTransaction;
+        this.transactionType = transactionType;
+        this.transactionAmount = transactionAmount;
+        this.account = account;
+    }
+
+    public Transactions(int accountIdTransaction, String transactionType, double transactionAmount, Accounts account) {
         this.accountIdTransaction = accountIdTransaction;
         this.transactionType = transactionType;
         this.transactionAmount = transactionAmount;
