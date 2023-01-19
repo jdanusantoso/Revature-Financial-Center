@@ -1,8 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8230e5a9-f672-4904-bf51-b334fc3d296c" name="Changes" comment="backend clean up">
+      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/revature/controllers/AccountsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/revature/controllers/AccountsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/revature/controllers/RequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/revature/controllers/RequestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/revature/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/revature/controllers/UserController.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2KWERMMKV8mjthTmM8jaOWbTyjd" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
@@ -48,6 +80,15 @@
     "last_opened_file_path": "C:/Users/Jef Danusantoso/Desktop/Spring/BankingApp1"
   }
 }]]></component>
+=======
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Jef Danusantoso/Desktop/Spring/BankingApp1&quot;
+  }
+}</component>
+>>>>>>> d2cbae9348d9fc90c0d94fedc0bbdbc59b42c7ce
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.revature.daos" />
@@ -64,8 +105,36 @@
       <option name="presentableId" value="Default" />
       <updated>1674081933199</updated>
     </task>
+<<<<<<< HEAD
     <servers />
   </component>
+=======
+    <task id="LOCAL-00001" summary="backend clean up">
+      <created>1674110401234</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1674110401234</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="backend clean up" />
+    <option name="LAST_COMMIT_MESSAGE" value="backend clean up" />
+  </component>
+>>>>>>> d2cbae9348d9fc90c0d94fedc0bbdbc59b42c7ce
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BankingApp1$AccountServiceTesting_depositTest1.ic" NAME="AccountServiceTesting.depositTest1 Coverage Results" MODIFIED="1673835059809" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.revature.service.*</FILTER>
