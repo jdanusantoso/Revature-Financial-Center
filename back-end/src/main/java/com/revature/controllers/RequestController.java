@@ -21,8 +21,6 @@ public class RequestController {
         this.rDAO = rDAO;
     }
 
-//    @Autowired
-//    private AccountService accountService;
 
     //HTTP Requests-------------------------------
 
@@ -31,18 +29,13 @@ public class RequestController {
     //url : localhost:5556/data/accounts/new
     public ResponseEntity addAccount(@RequestBody Requests r){
 
-        //Thanks to @RequestBody, our Digimon d parameter is filled with the body of the HTTP Request
-        //Automatic JSON conversion :)
-
-        //the save() method from our DAO is how we can insert new data
         Requests newRequest = rDAO.save(r);
 
-        //if insert failed...
+
         if(newRequest == null){
             return ResponseEntity.badRequest().build(); //send a 400 status code, and no response body
         }
 
-        //if insert succeeded...
         return ResponseEntity.accepted().body(newRequest); //send a 202 status code and the new digimon
     }
 

@@ -25,5 +25,5 @@ public interface AccountsDAO extends JpaRepository<Accounts, Integer> {
 
     Accounts findByAccountId(int accountId);
 
-    Accounts findByAccountIdRecipient(int accountIdRecipient);
+
 }
