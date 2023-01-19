@@ -1,6 +1,7 @@
 package com.revature.controllers;
 
 import com.revature.daos.AccountsDAO;
+import com.revature.exception.AccountDoesNotExistException;
 import com.revature.exception.OverDraftException;
 import com.revature.models.Accounts;
 import com.revature.models.Transactions;
@@ -18,7 +19,6 @@ import java.util.Optional;
 @RequestMapping(value="/accounts")
 public class AccountsController {
 
-    //autowiring the DigimonDAO with constructor injection
 
     private final AccountsDAO aDAO;
 
@@ -33,15 +33,12 @@ public class AccountsController {
 
     //HTTP Requests-------------------------------
 
-    //insert digimon - every POST request to /digimon will go here
+
     @PostMapping(value="/new")
     //url : localhost:5556/data/accounts/new
     public ResponseEntity addAccount(@RequestBody Accounts a){
 
-        //Thanks to @RequestBody, our Digimon d parameter is filled with the body of the HTTP Request
-        //Automatic JSON conversion :)
 
-        //the save() method from our DAO is how we can insert new data
         Accounts newAccount = aDAO.save(a);
 
         //if insert failed...
@@ -60,8 +57,6 @@ public class AccountsController {
 
         return ResponseEntity.ok(aDAO.findAll()); //.ok() returns a 200 level status code
 
-        //note that I'm nesting the DB call in the actual return
-        //this is shorthand - I could have done .ok().body(dDAO.findAll());
 
     }
 
@@ -69,15 +64,12 @@ public class AccountsController {
     //url : localhost:5556/data/accounts/accountId/1
     public ResponseEntity<Accounts> findById(@PathVariable int accountId){
 
-        /* findById from JpaRepository returns an Optional
-          Optionals lend to code flexibility because it MAY OR MAY NOT have the request object.
-          This helps us avoid NullPointerExceptions
-         */
+
         Optional<Accounts> accountOptional = aDAO.findById(accountId);
 
         //we can check if the optional has data with .isPresent(), or .isEmpty()
         if(accountOptional.isPresent()){
-            //we can extract the Optional's data with .get()
+
             Accounts extractedAccount = accountOptional.get();
 
             return ResponseEntity.ok(extractedAccount);
@@ -90,15 +82,12 @@ public class AccountsController {
     //url : localhost:5556/data/accounts/accountId/1
     public ResponseEntity<Accounts> findByAccountIdRecipient(@PathVariable int accountIdRecipient){
 
-        /* findById from JpaRepository returns an Optional
-          Optionals lend to code flexibility because it MAY OR MAY NOT have the request object.
-          This helps us avoid NullPointerExceptions
-         */
+
         Optional<Accounts> accountRecipientOptional = aDAO.findById(accountIdRecipient);
 
-        //we can check if the optional has data with .isPresent(), or .isEmpty()
+
         if(accountRecipientOptional.isPresent()){
-            //we can extract the Optional's data with .get()
+
             Accounts extractedAccount = accountRecipientOptional.get();
 
             return ResponseEntity.ok(extractedAccount);
@@ -127,29 +116,38 @@ public class AccountsController {
 
     }
 
-    @PatchMapping(value="/deposit/{accountId}")
-    //url: localhost:5556/data/transactions/submitTransaction
-    public ResponseEntity depositMoney(@PathVariable int accountId, @RequestBody Accounts a, double transactionAmount){
+    @PatchMapping(value="/deposit/{accountId}/{transactionAmount}")
+    //url: localhost:5556/data/accounts/deposit/1/25.69
+    public ResponseEntity depositMoney(@PathVariable int accountId, @RequestBody Accounts a, @PathVariable double transactionAmount){
 
-       Accounts updateAccountBalance = aDAO.findByAccountId(accountId);
+        Accounts updateAccountBalance = aDAO.findById(accountId)
+                .orElseThrow(() -> new AccountDoesNotExistException());
 
-//        Accounts updateRecipientAccountBalance = aDAO.findByAccountRecipientId(accountRecipientId);
+        updateAccountBalance.setAccountBalance(updateAccountBalance.getAccountBalance() + transactionAmount);
 
-
-
-
-//        Accounts updateWithdrawBalance;
-        updateAccountBalance.setAccountBalance(updateAccountBalance.getAccountBalance() - transactionAmount);
-//        updateRecipientAccountBalance.setAccountRecipientBalance(updateRecipientAccountBalance.getAccountRecipientBalance() + transactionAmount);
 
         aDAO.save(updateAccountBalance);
-//        aDAO.save(updateRecipientAccountBalance);
+
 
         return ResponseEntity.ok(updateAccountBalance);
 
     }
 
-    /*---------------------------------------------------------------------------------------*/
+    @PatchMapping(value="/withdraw/{accountId}/{transactionAmount}")
+    //url: localhost:5556/data/accounts/withdraw/1/25.69
+    public ResponseEntity<Accounts> withdrawMoney(@PathVariable int accountId, @RequestBody Accounts a, @PathVariable double transactionAmount){
+
+        Accounts updateAccountBalance = aDAO.findById(accountId)
+                .orElseThrow(() -> new AccountDoesNotExistException());
+
+        updateAccountBalance.setAccountBalance(updateAccountBalance.getAccountBalance() - transactionAmount);
+
+        aDAO.save(updateAccountBalance);
+
+        return ResponseEntity.ok(updateAccountBalance);
+
+    }
+
 /*
     @PostMapping(value="/deposit")
     //url: localhost:5556/data/transactions/submitTransaction

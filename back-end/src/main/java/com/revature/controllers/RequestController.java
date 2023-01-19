@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value="/requests")
 public class RequestController {
 
-    //autowiring the DigimonDAO with constructor injection
-
     private final RequestsDAO rDAO;
 
     @Autowired
@@ -24,7 +22,6 @@ public class RequestController {
 
     //HTTP Requests-------------------------------
 
-    //insert digimon - every POST request to /digimon will go here
     @PostMapping(value="/newRequest")
     //url : localhost:5556/data/accounts/new
     public ResponseEntity addAccount(@RequestBody Requests r){
