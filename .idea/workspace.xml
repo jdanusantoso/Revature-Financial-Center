@@ -4,23 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="77474628-c34a-435a-9915-5c354755d930" name="Changes" comment="withdraw and deposit methods set up">
-      <change afterPath="$PROJECT_DIR$/back-end/src/main/java/com/revature/exception/AccountDoesNotExistException.java" afterDir="false" />
+    <list default="true" id="77474628-c34a-435a-9915-5c354755d930" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/back-end/src/main/java/com/revature/controllers/RequestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/src/main/java/com/revature/daos/RequestsDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/src/main/java/com/revature/exception/UserNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/src/main/java/com/revature/models/Requests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/revature/controllers/AccountsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/revature/controllers/AccountsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/revature/controllers/RequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/revature/controllers/RequestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/revature/controllers/TransactionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/revature/controllers/TransactionsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/revature/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/revature/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/revature/daos/AccountsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/revature/daos/AccountsDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/revature/daos/RequestsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/revature/daos/RequestsDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/revature/daos/TransactionsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/revature/daos/TransactionsDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/revature/daos/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/revature/daos/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/revature/exception/UserDoesNotExistException.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/revature/exception/UserDoesNotExistException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/revature/models/Accounts.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/revature/models/Accounts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/revature/models/Transactions.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/revature/models/Transactions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/revature/models/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/revature/models/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/revature/service/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/revature/service/AccountService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/src/main/java/com/revature/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/java/com/revature/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,18 +38,18 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Jef Danusantoso/Desktop/Spring/BankingApp1&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Jef Danusantoso/Desktop/Spring/BankingApp1"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.revature.exception" />
       <recent name="com.revature.daos" />
       <recent name="com.revature.models" />
+      <recent name="com.revature.exception" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -70,61 +61,7 @@
       <option name="presentableId" value="Default" />
       <updated>1674081933199</updated>
     </task>
-    <task id="LOCAL-00001" summary="request money set up in backend">
-      <created>1674091783975</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1674091783975</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Merge remote-tracking branch 'pro2/main'&#10;&#10;# Conflicts:&#10;#&#9;back-end/src/main/java/com/revature/models/Users.java">
-      <created>1674091837837</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1674091837837</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Merge remote-tracking branch 'pro2/main'&#10;&#10;# Conflicts:&#10;#&#9;back-end/src/main/java/com/revature/models/Users.java">
-      <created>1674091859978</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1674091859978</updated>
-    </task>
-    <task id="LOCAL-00004" summary="withdraw and deposit methods set up">
-      <created>1674100390336</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1674100390336</updated>
-    </task>
-    <task id="LOCAL-00005" summary="withdraw and deposit methods set up">
-      <created>1674100427689</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1674100427689</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="request money set up in backend" />
-    <MESSAGE value="request money set up" />
-    <MESSAGE value="Merge remote-tracking branch 'pro2/main'&#10;&#10;# Conflicts:&#10;#&#9;back-end/src/main/java/com/revature/models/Users.java" />
-    <MESSAGE value="withdraw and deposit methods set up" />
-    <option name="LAST_COMMIT_MESSAGE" value="withdraw and deposit methods set up" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BankingApp1$AccountServiceTesting_depositTest1.ic" NAME="AccountServiceTesting.depositTest1 Coverage Results" MODIFIED="1673835059809" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

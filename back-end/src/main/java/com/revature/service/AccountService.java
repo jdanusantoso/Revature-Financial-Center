@@ -1,14 +1,10 @@
 package com.revature.service;
 
 import com.revature.daos.AccountsDAO;
-import com.revature.exception.InvalidAccountTransferException;
-import com.revature.exception.OverDraftException;
 import com.revature.models.Accounts;
 import com.revature.models.Transactions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-
 @Service
 public class AccountService {
 
@@ -28,8 +24,5 @@ public class AccountService {
         a.setAccountBalance(a.getAccountBalance() - transactionAmount);
         accountDAO.updateAccount(a);
     }
-
-
-
 
 }
