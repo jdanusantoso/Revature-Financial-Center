@@ -13,12 +13,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 public class BankingApp1Application {
 
 	public static void main(String[] args) {
-
 		SpringApplication.run(BankingApp1Application.class, args);
-
-
-
 	}
-
-
 }
