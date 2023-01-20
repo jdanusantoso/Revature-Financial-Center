@@ -20,9 +20,9 @@ const Dashboard: React.FC<any> = (props: any) => {
 
   const logout = () => {
     //setError("");
-    //appState.user.username = "";
-    //appState.user.password = "";
-    //appState.user.id = 0;
+    appState.user.username = "";
+    appState.user.password = "";
+    appState.user.id = 0;
     navigate("/");
   };
 
@@ -64,6 +64,12 @@ const Dashboard: React.FC<any> = (props: any) => {
       <div className="depo">
         <button className="transfer" onClick={() => navigate("/transfer")}>
           Transfer Money between Accounts
+        </button>
+      </div>
+
+      <div className="depo">
+        <button className="request" onClick={() => navigate("/request")}>
+          Request Money
         </button>
       </div>
 

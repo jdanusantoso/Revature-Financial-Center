@@ -36,6 +36,7 @@ const Profile: React.FC<any> = ({ user }) => {
   };
 
   const handleSave = () => {
+    console.log(user);
     // Save the changes to the server here
     setEditing(false);
   };

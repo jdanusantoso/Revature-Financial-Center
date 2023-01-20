@@ -12,6 +12,8 @@ import Transfer from "./Components/Transfer/transfer";
 import Transactions from "./Components/Transactions/transactions";
 import DarkMode from "./Components/DarkMode/DarkMode";
 import UserProfile from "./Components/Profile/UserProfile";
+import Request from "./Components/Request/request";
+import { EmployeeContainerComponent } from "./Components/EmployeeContainerComponent/EmployeeContainerComponent";
 
 function App() {
   const [name, setUserName] = useState("");
@@ -31,7 +33,9 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/send" element={<Send />} />
             <Route path="/transactions" element={<Transactions />} />
+            <Route path="/emp" element={<EmployeeContainerComponent />} />
             <Route path="/transfer" element={<Transfer />} />
+            <Route path="/request" element={<Request />} />
             <Route path="/withdraw" element={<Withdraw />} />
           </Routes>
         </BrowserRouter>
