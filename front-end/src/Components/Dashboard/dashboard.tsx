@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 const Dashboard: React.FC<any> = (props: any) => {
   const navigate = useNavigate();
   const appState = useSelector<any, any>((state) => state);
+  const [logB, setB] = useState("");
 
   const [error, setError] = useState("");
   const user = {
@@ -71,7 +72,7 @@ const Dashboard: React.FC<any> = (props: any) => {
       </div>
 
       <button className="logout-button" onClick={logout}>
-        Logout
+        Log Out
       </button>
     </div>
   );

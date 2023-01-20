@@ -66,7 +66,7 @@ const UserProfile: React.FC<any> = () => {
     } catch (error) {
       const err = error as Error;
       setError("Login to view your account");
-      navigate("/");
+      //navigate("/");
     }
   };
 
