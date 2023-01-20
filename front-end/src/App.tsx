@@ -11,6 +11,7 @@ import Withdraw from "./Components/Withdraw/withdraw";
 import Transfer from "./Components/Transfer/transfer";
 import Transactions from "./Components/Transactions/transactions";
 import DarkMode from "./Components/DarkMode/DarkMode";
+import UserProfile from "./Components/Profile/UserProfile";
 
 function App() {
   const [name, setUserName] = useState("");
@@ -25,6 +26,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/account" element={<Account />} />
+            <Route path="/user" element={<UserProfile />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/send" element={<Send />} />
             <Route path="/transactions" element={<Transactions />} />

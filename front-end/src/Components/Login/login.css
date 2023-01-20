@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: center;
     border-radius: 5px;
-    border: 2px ;
+    border: 2px;
     padding: 20px;
 }
 
@@ -17,7 +17,7 @@
     height: 20px;
     margin-bottom: 10px;
     margin-left: auto;
-    margin-right:auto;
+    margin-right: auto;
     background-color: #f0e8e8;
     width: 25%;
     border-radius: 25px;
@@ -26,10 +26,24 @@
 }
 
 .login-button {
-    background: #b66a7d; 
+    background: #b66a7d;
     width: 10%;
     margin-left: auto;
-    margin-right:auto;
+    margin-right: auto;
+    border-color: #02040F;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.dashboard-button {
+    background: #b66a7d;
+    width: 10%;
+    margin-left: auto;
+    margin-right: auto;
     border-color: #02040F;
     border-radius: 25px;
     font-size: 1.2rem;
@@ -43,18 +57,18 @@
     cursor: pointer;
 }
 
-.disclaimer{
+.disclaimer {
     margin-left: auto;
-    margin-right:auto;
+    margin-right: auto;
     margin-top: 10%;
-   font-size: x-small;
+    font-size: x-small;
 }
 
-.register-button{
-    background: #b66a7d; 
+.register-button {
+    background: #b66a7d;
     width: 25%;
     margin-left: auto;
-    margin-right:auto;
+    margin-right: auto;
     border-color: #02040F;
     border-radius: 25px;
     font-size: 1.2rem;
@@ -65,13 +79,11 @@
 
 }
 
-.register-button:hover{
+.register-button:hover {
     cursor: pointer;
 }
 
-input{
+input {
     border-style: hidden;
     width: stretch;
 }
-
-
