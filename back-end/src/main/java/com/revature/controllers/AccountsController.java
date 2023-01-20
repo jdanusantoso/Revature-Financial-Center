@@ -164,5 +164,20 @@ public class AccountsController {
     }
 
 
+    @PatchMapping(value="/transferMoney/{accountHolder}/{accountId}/{transactionAmount}")
+    //url: localhost:5556/data/accounts/transferMoney/Joey Sosa/2/25.69
+    public ResponseEntity<Accounts> transferMoney(@PathVariable String accountHolder, @PathVariable int accountId, @RequestBody Accounts a, @PathVariable double transactionAmount){
+
+        Accounts transferMoney = aDAO.findById(accountId)
+                .orElseThrow(() -> new AccountDoesNotExistException());
+
+        transferMoney.setAccountBalance(transferMoney.getAccountBalance() + transactionAmount);
+
+        aDAO.save(transferMoney);
+
+        return ResponseEntity.ok(transferMoney);
+
+    }
+
 
 }

@@ -8,14 +8,6 @@ const Withdraw: React.FC<any> = () => {
 
   const [withdrawAmount, setWithdrawAmount] = useState(0);
 
-  const account = {
-    accountBalance: 0,
-    accountHolder: "",
-    accountId: 0,
-    transactionAmount: 0,
-    users: "",
-  };
-
   const [accountB, setaccountBalance] = useState(0);
   const [accountHolder, setaccountHolder] = useState("");
   const [accountId, setaccountId] = useState(0);

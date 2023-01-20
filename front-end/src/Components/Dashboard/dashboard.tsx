@@ -56,6 +56,18 @@ const Dashboard: React.FC<any> = (props: any) => {
       </div>
 
       <div className="depo">
+        <button className="send" onClick={() => navigate("/edit")}>
+          Edit Password
+        </button>
+      </div>
+
+      <div className="depo">
+        <button className="send" onClick={() => navigate("/editProfile")}>
+          Edit Profile
+        </button>
+      </div>
+
+      <div className="depo">
         <button className="withdraw" onClick={() => navigate("/withdraw")}>
           Withdraw
         </button>

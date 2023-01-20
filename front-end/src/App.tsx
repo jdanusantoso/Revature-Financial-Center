@@ -14,6 +14,8 @@ import DarkMode from "./Components/DarkMode/DarkMode";
 import UserProfile from "./Components/Profile/UserProfile";
 import Request from "./Components/Request/request";
 import { EmployeeContainerComponent } from "./Components/EmployeeContainerComponent/EmployeeContainerComponent";
+import EditPass from "./Components/Edit/edit";
+import EditProfile from "./Components/Edit/EditProfile";
 
 function App() {
   const [name, setUserName] = useState("");
@@ -37,6 +39,8 @@ function App() {
             <Route path="/transfer" element={<Transfer />} />
             <Route path="/request" element={<Request />} />
             <Route path="/withdraw" element={<Withdraw />} />
+            <Route path="/edit" element={<EditPass />} />
+            <Route path="/editProfile" element={<EditProfile />} />
           </Routes>
         </BrowserRouter>
       </div>
