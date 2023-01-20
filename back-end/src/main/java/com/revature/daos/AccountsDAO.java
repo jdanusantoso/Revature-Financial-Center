@@ -17,6 +17,9 @@ public interface AccountsDAO extends JpaRepository<Accounts, Integer> {
 
     public Optional<List<Accounts>> findByAccountHolder(String accountHolder);
 
+    public Optional<List<Accounts>>getByAccountHolderAndAccountId(String accountHolder, int accountId);
+
+
 
     @Transactional
     @Modifying
