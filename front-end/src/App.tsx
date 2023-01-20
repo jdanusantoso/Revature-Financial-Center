@@ -8,7 +8,7 @@ import Account from "./Components/Account/account";
 import Profile from "./Components/Profile/profile";
 import Send from "./Components/Send/send";
 import Withdraw from "./Components/Withdraw/withdraw";
-import Transfer from "./Components/Transfer/transfer";
+import Trans from "./Components/Transfer/transfer";
 import Transactions from "./Components/Transactions/transactions";
 import DarkMode from "./Components/DarkMode/DarkMode";
 import UserProfile from "./Components/Profile/UserProfile";
@@ -36,7 +36,7 @@ function App() {
             <Route path="/send" element={<Send />} />
             <Route path="/transactions" element={<Transactions />} />
             <Route path="/emp" element={<EmployeeContainerComponent />} />
-            <Route path="/transfer" element={<Transfer />} />
+            <Route path="/transfer" element={<Trans />} />
             <Route path="/request" element={<Request />} />
             <Route path="/withdraw" element={<Withdraw />} />
             <Route path="/edit" element={<EditPass />} />
