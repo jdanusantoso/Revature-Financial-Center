@@ -24,7 +24,10 @@ export const Transactions = () => {
     }
 
     try {
-      await axios.post("http://localhost:5556/", newTransaction);
+      await axios.get(
+        "http://localhost:5556/data/transactions/getAllTransactionType?accountIdTransaction=4&transactionType=income",
+        newTransaction
+      );
       setTransactions([...transactions, newTransaction]);
       setNewTransaction({ type: "", amount: "" });
     } catch (error) {

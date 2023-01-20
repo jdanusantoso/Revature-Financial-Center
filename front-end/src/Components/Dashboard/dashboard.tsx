@@ -31,38 +31,44 @@ const Dashboard: React.FC<any> = (props: any) => {
       <div className="welcome">
         <h1>Welcome {appState.user.username}</h1>
       </div>
-      <button className="userpro" onClick={() => navigate("/Profile")}>
+      <button className="userpro" onClick={() => navigate("/profile")}>
         View User Profile
       </button>
 
       <h3 className="dashboard-menu">Dashboard</h3>
 
       <div className="depo">
-        <button className="income" onClick={() => navigate("/Transactions")}>
+        <button className="income" onClick={() => navigate("/transactions")}>
           View Transactions
         </button>
       </div>
 
       <div className="depo">
-        <button className="account" onClick={() => navigate("/Account")}>
+        <button className="income" onClick={() => navigate("/account")}>
           Accounts
         </button>
       </div>
 
       <div className="depo">
-        <button className="withdraw" onClick={() => navigate("/Withdraw")}>
+        <button className="income" onClick={() => navigate("/UserProfile")}>
+          UserProfile
+        </button>
+      </div>
+
+      <div className="depo">
+        <button className="withdraw" onClick={() => navigate("/withdraw")}>
           Withdraw
         </button>
       </div>
 
       <div className="depo">
-        <button className="transfer" onClick={() => navigate("/Transfer")}>
+        <button className="transfer" onClick={() => navigate("/transfer")}>
           Transfer Money between Accounts
         </button>
       </div>
 
       <div className="depo">
-        <button className="send" onClick={() => navigate("/Send")}>
+        <button className="send" onClick={() => navigate("/send")}>
           Send Money
         </button>
       </div>

@@ -31,7 +31,7 @@ const UserProfile: React.FC<any> = () => {
 
   const login = async () => {
     //send an HTTP POST request with axios, and store the response in a variable that we can use
-    console.log("START");
+    console.log("START  1");
     console.log(appState.user.id);
     try {
       const response = await axios.get(
@@ -65,7 +65,8 @@ const UserProfile: React.FC<any> = () => {
       }
     } catch (error) {
       const err = error as Error;
-      setError("account Already Found");
+      setError("Login to view your account");
+      navigate("/");
     }
   };
 
