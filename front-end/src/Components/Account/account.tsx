@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./account.css";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Login: React.FC<any> = () => {
   const [error, setError] = useState("");
+  const appState = useSelector<any, any>((state) => state);
+
   const account = {
     idNum: 0,
     accountId: 0,
@@ -33,25 +36,25 @@ const Login: React.FC<any> = () => {
 
   /* when the account updates the username/password this will be called thanks to onChange
   the username OR password state will get updated based on the name of the input that's changing */
-  const gatherInput = (input: any) => {
+  const gatherInputs = (input: any) => {
     if (input.target.name === "accountNum") {
       setId(input.target.value);
     }
   };
 
-  const blorp = () => {
-    setaccountId("4");
-  };
-
   const login = async () => {
     //send an HTTP POST request with axios, and store the response in a variable that we can use
+    console.log("START");
+    console.log(appState.user.id);
     try {
       const response = await axios.get(
-        "http://localhost:5556/data/accounts/accountIdRecipient/" + idNum
+        "http://localhost:5556/data/users/findById/" + appState.user.id
       );
-      console.log(response);
+      console.log(response.data.userId);
+      console.log(response.status);
       if (response.status === 200) {
-        account.accountId = response.data.accountId;
+        console.log(response);
+        account.accountId = response.data.userId;
         account.accountIdRecipient = response.data.accountIdRecipient;
         account.accountHolder = response.data.accountHolder;
         account.accountHolderRecipient = response.data.accountHolderRecipient;
@@ -60,7 +63,7 @@ const Login: React.FC<any> = () => {
         account.accountRecipientBalance = response.data.accountRecipientBalance;
         account.users = response.data.users;
 
-        setaccountId(response.data.accountId);
+        setaccountId(response.data.userId);
         setaccountIdRecipient(response.data.accountIdRecipient);
         setidaccountHolderNum(response.data.accountHolder);
         setaccountHolderRecipient(response.data.accountHolderRecipient);
@@ -90,18 +93,19 @@ const Login: React.FC<any> = () => {
 
       <div className="textlogin">
         <h1>Welcome to Revature Financial Center</h1>
+        <h2>{appState.user.id}</h2>
       </div>
       <div className="account">
         <input
           type="number"
           name="accountNum"
           placeholder="accountNum"
-          onChange={gatherInput}
+          onChange={gatherInputs}
         />
       </div>
 
       <button className="login-button" onClick={login}>
-        Search
+        Send it
       </button>
 
       <div className="account-display">

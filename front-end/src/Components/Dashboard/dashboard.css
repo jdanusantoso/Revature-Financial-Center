@@ -1,22 +1,24 @@
 .dashCont {
-   background-color: -webkit-linear-gradient(to right, #f5af19, #f12711);
-   
- 
+    background-color: -webkit-linear-gradient(to right, #f5af19, #f12711);
+
 }
 
 
-.labelcont{
+.labelcont {
     width: 2px;
 
 }
-.depo{
-    height: 30px;
-   
+
+.depo {
+    height: 40px;
+
 }
-.welcome{
-  
+
+.welcome {
+
     text-align: center;
 }
-.userpro{
+
+.userpro {
     text-align: center;
 }

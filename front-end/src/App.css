@@ -1,12 +1,25 @@
 .App {
   text-align: center;
-  
+
 }
 
-body{
-  background: #f5af19;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #f5af19, #f12711);
-  background: linear-gradient(to right, #f5af19, #f12711); 
-   
+.App-header {
+  background-color: #282c34;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+td {
+  border: 1px solid gray;
+  width: 30em;
+}
