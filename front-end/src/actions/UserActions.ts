@@ -14,10 +14,8 @@ export const loginUser = (loginCreds:UserLogin) => async (dispatch:any) => {
 
     //create an empty object of type IUser - this will get filled on successful login
     let loggedInUser: User;
-    console.log(loginCreds.username);
     try {
        
-
         console.log("Start")
         //send my HTTP request with axios, and put it into a variable we can use
         const response = await axios.get(

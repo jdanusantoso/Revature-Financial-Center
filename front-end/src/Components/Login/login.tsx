@@ -54,6 +54,8 @@ const Login: React.FC<any> = () => {
       <div className="textlogin">
         <h1>Welcome to Revature Financial Center </h1>
         <h2>User: {appState.user.username}</h2>
+        <h2>User: {appState.user.password}</h2>
+        <h2>User: {appState.user.id}</h2>
       </div>
       <div className="user">
         <input
