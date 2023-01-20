@@ -3,13 +3,7 @@
 
 }
 
-body {
-  background: #f5af19;
-  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #f5af19, #f12711);
-  background: linear-gradient(to right, #f5af19, #f12711);
 
-}
 
 .App-header {
   background-color: #282c34;

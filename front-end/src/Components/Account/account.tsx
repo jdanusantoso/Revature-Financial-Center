@@ -33,14 +33,10 @@ const Login: React.FC<any> = () => {
 
   /* when the account updates the username/password this will be called thanks to onChange
   the username OR password state will get updated based on the name of the input that's changing */
-  const gatherInput = (input: any) => {
+  const gatherInputs = (input: any) => {
     if (input.target.name === "accountNum") {
       setId(input.target.value);
     }
-  };
-
-  const blorp = () => {
-    setaccountId("4");
   };
 
   const login = async () => {
@@ -96,7 +92,7 @@ const Login: React.FC<any> = () => {
           type="number"
           name="accountNum"
           placeholder="accountNum"
-          onChange={gatherInput}
+          onChange={gatherInputs}
         />
       </div>
 

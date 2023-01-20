@@ -1,5 +1,7 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import UserP from "./interface";
+import Prof from "./Prof";
 
 interface ProfInt {
   user_profile: UserP[];
@@ -20,8 +22,10 @@ const LoginProfile: React.FC<UserP> = ({ passWord, usrName }: UserP) => {
 };
 
 const UserProfile: React.FC<ProfInt> = ({ user_profile }: ProfInt) => {
+  const navigate = useNavigate();
   return (
     <div>
+      <Prof username="Peter" password="Griffin" />
       <table>
         <tbody>
           <tr className="Table-Header">
@@ -42,6 +46,10 @@ const UserProfile: React.FC<ProfInt> = ({ user_profile }: ProfInt) => {
           })}
         </tbody>
       </table>
+      <button
+        className="dash-button"
+        onClick={() => navigate("/account")}
+      ></button>
     </div>
   );
 };
