@@ -149,7 +149,7 @@ public class AccountsController {
     }
 
     @PatchMapping(value="/sendMoney/{accountHolder}/{accountId}/{transactionAmount}")
-    //url: localhost:5556/data/accounts/sendMoney/Joey Sosa/2/25.69
+    //url: localhost:5556/data/accounts/sendMoney/{accountHolder}/{accountId}/{transactionAmount}
     public ResponseEntity<Accounts> sendMoney(@PathVariable String accountHolder, @PathVariable int accountId, @RequestBody Accounts a, @PathVariable double transactionAmount){
 
         Accounts sendMoney = aDAO.findById(accountId)
