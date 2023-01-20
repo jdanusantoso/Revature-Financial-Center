@@ -7,6 +7,7 @@ const Send: React.FC<any> = () => {
   const [error, setError] = useState("");
 
   const [depositAmount, setdepositAmount] = useState(0);
+  const [depositID, setDepositId] = useState(0);
 
   const [accountBalance, setemail] = useState("");
   const [accountHolder, setfirstName] = useState("");
@@ -22,7 +23,7 @@ const Send: React.FC<any> = () => {
     try {
       const response = await axios.patch(
         "http://localhost:5556/data/accounts/deposit/" +
-          appState.user.id +
+          depositID +
           "/" +
           depositAmount,
         {}
@@ -56,6 +57,8 @@ const Send: React.FC<any> = () => {
   const gatherInput = (input: any) => {
     if (input.target.name === "deposit") {
       setdepositAmount(input.target.value);
+    } else {
+      setDepositId(input.target.value);
     }
   };
 
@@ -78,6 +81,15 @@ const Send: React.FC<any> = () => {
           type="number"
           name="deposit"
           placeholder="deposit"
+          onChange={gatherInput}
+        />
+      </div>
+
+      <div className="deposit">
+        <input
+          type="number"
+          name="id"
+          placeholder="id"
           onChange={gatherInput}
         />
       </div>

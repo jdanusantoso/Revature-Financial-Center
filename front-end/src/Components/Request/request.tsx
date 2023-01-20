@@ -6,13 +6,20 @@ import { useSelector } from "react-redux";
 const Request: React.FC<any> = () => {
   const [error, setError] = useState("");
 
-  const [moneyResquested, moneySet] = useState("");
+  const appState = useSelector<any, any>((state) => state);
+  const [accountRequest, accoutnSet] = useState("");
+  const [personMoney, setPersonMoney] = useState(0);
+  const [memoSent, setMemoSent] = useState("");
+
   const user = {
-    accountHolderRequest: "Goon",
-    accountHolderRecipientRequest: "David",
-    memoRequest: "Treats ",
-    transactionAmount: 50,
+    accountHolderRequest: accountRequest,
+    accountHolderRecipientRequest: "",
+    memoRequest: memoSent,
+    transactionAmount: personMoney,
   };
+
+  user.accountHolderRecipientRequest = appState.user.username;
+  console.log(appState.user.username);
 
   console.log(user);
 
@@ -25,8 +32,6 @@ const Request: React.FC<any> = () => {
   const [transactionAmount, settransactionAmount] = useState(0);
   const [account, setaccount] = useState("");
 
-  const appState = useSelector<any, any>((state) => state);
-
   const navigate = useNavigate();
 
   const login = async () => {
@@ -38,6 +43,7 @@ const Request: React.FC<any> = () => {
 
       console.log(response);
       if (response.status === 202) {
+        console.log("Resposn");
         console.log(response);
 
         setrequestId(response.data.requestId);
@@ -65,8 +71,12 @@ const Request: React.FC<any> = () => {
   };
 
   const gatherInput = (input: any) => {
-    if (input.target.name === "deposit") {
-      moneySet(input.target.value);
+    if (input.target.name === "receiver") {
+      accoutnSet(input.target.value);
+    } else if (input.target.name === "amount") {
+      setPersonMoney(input.target.value);
+    } else {
+      setMemoSent(input.target.value);
     }
   };
 
@@ -77,26 +87,46 @@ const Request: React.FC<any> = () => {
       <div className="textlogin">
         <h1>Welcome to Revature Financial Center</h1>
         <h2>Request Window: {appState.user.username}</h2>
-        <h2>1 accountBalance: {requestId}</h2>
-        <h2>2 accountHolder: {accountHolderRequest}</h2>
-        <h2>3 accountId: {accountHolderRecipientRequest}</h2>
-        <h2>4 transactionAmount: {memoRequest}</h2>
-        <h2>5 users: {requestTransactionType}</h2>
-        <h2>5 users: {transactionAmount}</h2>
-        <h2>5 users: {account}</h2>
+        <h2>1 requestId: {requestId}</h2>
+        <h2>2 accountHolderRequest: {accountHolderRequest}</h2>
+        <h2>
+          3 accountHolderRecipientRequest: {accountHolderRecipientRequest}
+        </h2>
+        <h2>4 memoRequest: {memoRequest}</h2>
+        <h2>5 requestTransactionType: {requestTransactionType}</h2>
+        <h2>5 transactionAmount: {transactionAmount}</h2>
+        <h2>5 account: {account}</h2>
       </div>
 
-      <div className="deposit">
+      <div className="receiver">
+        <input
+          type="text"
+          name="receiver"
+          placeholder="receiver"
+          onChange={gatherInput}
+        />
+      </div>
+
+      <div className="amount">
         <input
           type="number"
-          name="deposit"
-          placeholder="deposit"
+          name="amount"
+          placeholder="amount"
+          onChange={gatherInput}
+        />
+      </div>
+
+      <div className="memo">
+        <input
+          type="text"
+          name="memo"
+          placeholder="memo"
           onChange={gatherInput}
         />
       </div>
 
       <button className="login-button" onClick={login}>
-        deposit
+        Request
       </button>
       <button
         className="dashboard-button"
