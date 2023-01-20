@@ -5,9 +5,12 @@ import Profile from "../Profile/profile";
 import { useState } from "react";
 
 import "./dashboard.css";
+import { useDispatch, useSelector } from "react-redux";
 
 const Dashboard: React.FC<any> = (props: any) => {
   const navigate = useNavigate();
+  const appState = useSelector<any, any>((state) => state);
+  const dispatch = useDispatch();
 
   const [error, setError] = useState("");
   const user = {
@@ -27,6 +30,7 @@ const Dashboard: React.FC<any> = (props: any) => {
     <div className="dashCont">
       <div className="welcome">
         <h1>Welcome User</h1>
+        <h2>User: {appState.user.username}</h2>
       </div>
       <button className="userpro" onClick={() => navigate("/Profile")}>
         View User Profile

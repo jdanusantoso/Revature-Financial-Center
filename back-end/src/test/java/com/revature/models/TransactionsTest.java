@@ -3,13 +3,13 @@ package com.revature.models;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
-import org.springframework.stereotype.Component;
-
-import javax.persistence.*;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.*;
-
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = Transactions.class)
 public class TransactionsTest{
 
     //Create Transactions Instance
@@ -66,7 +66,7 @@ public class TransactionsTest{
         String expected = "expense";
         String actual = transaction.getTransactionType();
         assertTrue(expected.equals(actual));
-        //fail("Not yet implemented");
+        fail("Not yet implemented");
 
     }
 
@@ -81,14 +81,4 @@ public class TransactionsTest{
 
     }
 
-//    //Test 5
-//    @Test
-//    public void testGetTransactionAmount2() {
-//
-//        double expected = 89.00;
-//        double actual = transaction.getTransactionAmount();
-//        assertEquals(expected, actual, 0.001);
-//        //fail("Not yet implemented");
-//
-//    }
 }
