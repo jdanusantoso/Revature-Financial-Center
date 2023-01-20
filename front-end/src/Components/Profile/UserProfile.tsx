@@ -76,7 +76,7 @@ const UserProfile: React.FC<any> = () => {
 
       <div className="textlogin">
         <h1>Welcome to Revature Financial Center</h1>
-        <h2>{appState.user.id}</h2>
+        <h2>{appState.user.username}</h2>
       </div>
 
       <button className="login-button" onClick={login}>

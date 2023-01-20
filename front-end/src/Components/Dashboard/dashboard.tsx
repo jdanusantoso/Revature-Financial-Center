@@ -31,33 +31,12 @@ const Dashboard: React.FC<any> = (props: any) => {
       <div className="welcome">
         <h1>Welcome {appState.user.username}</h1>
       </div>
-      <button className="userpro" onClick={() => navigate("/profile")}>
-        View User Profile
-      </button>
 
       <h3 className="dashboard-menu">Dashboard</h3>
 
       <div className="depo">
-        <button className="income" onClick={() => navigate("/transactions")}>
-          View Transactions
-        </button>
-      </div>
-
-      <div className="depo">
-        <button className="income" onClick={() => navigate("/account")}>
-          Accounts
-        </button>
-      </div>
-
-      <div className="depo">
         <button className="income" onClick={() => navigate("/UserProfile")}>
           UserProfile
-        </button>
-      </div>
-
-      <div className="depo">
-        <button className="send" onClick={() => navigate("/edit")}>
-          Edit Password
         </button>
       </div>
 

@@ -12,7 +12,7 @@ const Send: React.FC<any> = () => {
   const [accountBalance, setemail] = useState("");
   const [accountHolder, setfirstName] = useState("");
   const [accountId, setlastName] = useState("");
-  const [transactionAmount, setpassword] = useState("");
+  const [transactionAmount, setpassword] = useState(0);
   const [users, setuserId] = useState(0);
 
   const appState = useSelector<any, any>((state) => state);
@@ -36,7 +36,7 @@ const Send: React.FC<any> = () => {
         setemail(response.data.accountBalance);
         setfirstName(response.data.accountHolder);
         setlastName(response.data.accountId);
-        setpassword(response.data.transactionAmount);
+        setpassword(depositAmount);
         setuserId(response.data.users);
 
         //if the account logged in successfully, their userId won't be 0.
@@ -68,12 +68,11 @@ const Send: React.FC<any> = () => {
 
       <div className="textlogin">
         <h1>Welcome to Revature Financial Center</h1>
-        <h2>deposit Window: {appState.user.username}</h2>
+        <h2>Send Money to Other Account : {appState.user.username}</h2>
         <h2>1 accountBalance: {accountBalance}</h2>
-        <h2>2 accountHolder: {accountHolder}</h2>
+        <h2>2 Recipient: {accountHolder}</h2>
         <h2>3 accountId: {accountId}</h2>
         <h2>4 transactionAmount: {transactionAmount}</h2>
-        <h2>5 users: {users}</h2>
       </div>
 
       <div className="deposit">

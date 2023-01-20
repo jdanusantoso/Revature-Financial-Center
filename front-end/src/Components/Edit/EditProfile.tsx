@@ -26,18 +26,18 @@ const EditProfile: React.FC<any> = () => {
       const response = await axios.patch(
         "http://localhost:5556/data/users/updateUserPassword/" +
           appState.user.id,
-        { firstName: editFName, lastName: editLName, password: editEmail }
+        { password: editEmail }
       );
 
       console.log("Start");
       console.log(response);
       if (response.status === 200) {
-        console.log(response.data.accountBalance);
-        setaccountBalance(response.data.accountBalance);
-        setaccountHolder(response.data.accountHolder);
-        setaccountId(response.data.accountId);
-        settransactionAmount(response.data.transactionAmount);
-        setusers(response.data.users);
+        console.log(response.data.email);
+        setaccountBalance(response.data.firstName);
+        setaccountHolder(response.data.lastName);
+        setaccountId(response.data.password);
+        settransactionAmount(response.data.userId);
+        setusers(response.data.username);
 
         //if the account logged in successfully, their userId won't be 0.
         if (response.data == null) {
@@ -71,36 +71,18 @@ const EditProfile: React.FC<any> = () => {
       <div className="textlogin">
         <h1>Welcome to Revature Financial Center</h1>
         <h2>Edit Password Window: {appState.user.username}</h2>
-        <h2>1 Window: {accountB}</h2>
-        <h2>2 Window: {accountHolder}</h2>
-        <h2>3 Window: {accountId}</h2>
-        <h2>4 Window: {transactionAmount}</h2>
-        <h2>5 Window: {users}</h2>
+        <h2>firstName: {accountB}</h2>
+        <h2>lastName: {accountHolder}</h2>
+        <h2>password: {accountId}</h2>
+        <h2>userId: {transactionAmount}</h2>
+        <h2>username: {users}</h2>
       </div>
 
-      <div className="first">
+      <div className="password">
         <input
           type="text"
-          name="first"
-          placeholder="first"
-          onChange={gatherInput}
-        />
-      </div>
-
-      <div className="last">
-        <input
-          type="text"
-          name="last"
-          placeholder="last"
-          onChange={gatherInput}
-        />
-      </div>
-
-      <div className="email">
-        <input
-          type="text"
-          name="email"
-          placeholder="email"
+          name="password"
+          placeholder="password"
           onChange={gatherInput}
         />
       </div>

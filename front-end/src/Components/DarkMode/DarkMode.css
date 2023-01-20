@@ -8,16 +8,16 @@
 
 /* 2 */
 [data-theme="dark"] {
-    font-color: #eee;
-    background-color: #333;
-    background: -webkit-linear-gradient(to right, #382908, #360d08);
-    background: linear-gradient(to right, #271c04, #2e0905);
-    link-color: lightblue;
+    --font-color: #eee;
+    --background-color: #333;
+    --background: -webkit-linear-gradient(to right, #382908, #360d08);
+    --background: linear-gradient(to right, #271c04, #2e0905);
+    --link-color: lightblue;
 }
 
 /* 3 */
 body {
-    background-color: var(--background-color);
+    background: var(--background-color);
     color: var(--font-color);
 }
 

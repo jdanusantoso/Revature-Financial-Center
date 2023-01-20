@@ -53,9 +53,7 @@ const Login: React.FC<any> = () => {
 
       <div className="textlogin">
         <h1>Welcome to Revature Financial Center </h1>
-        <h2>User: {appState.user.username}</h2>
-        <h2>User: {appState.user.password}</h2>
-        <h2>User: {appState.user.id}</h2>
+        <h2>{appState.user.username}</h2>
       </div>
       <div className="user">
         <input
@@ -112,33 +110,3 @@ const Login: React.FC<any> = () => {
   );
 };
 export default Login;
-
-/* 
-    try {
-      const response = await axios.get(
-        "http://localhost:5556/data/users/login",
-        { params: { username, password } }
-      );
-      console.log(response);
-      if (response.status === 200) {
-        if (response.data[0] == null) {
-          console.log("Error");
-          setError("Username or Password is Incorrect, Please try again!");
-        } else {
-          //populate our user object from above with the incoming data from the server
-          user.userId = response.data[0].userId;
-          user.username = response.data[0].username;
-          user.password = response.data[0].password;
-
-          console.log(response.data[0].userId);
-
-          navigate("/dashboard");
-          //if the user logged in successfully, their userId won't be 0.
-        }
-      } else {
-        console.log("ERROR" + response);
-      }
-    } catch (error) {
-      const err = error as Error;
-      setError("User Already Found");
-    }*/

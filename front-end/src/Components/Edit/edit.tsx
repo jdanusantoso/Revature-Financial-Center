@@ -65,11 +65,11 @@ const EditPass: React.FC<any> = () => {
       <div className="textlogin">
         <h1>Welcome to Revature Financial Center</h1>
         <h2>Edit Password Window: {appState.user.username}</h2>
-        <h2>1 Window: {accountB}</h2>
-        <h2>2 Window: {accountHolder}</h2>
-        <h2>3 Window: {accountId}</h2>
-        <h2>4 Window: {transactionAmount}</h2>
-        <h2>5 Window: {users}</h2>
+        <h2>Balance: {accountB}</h2>
+        <h2>account holder: {accountHolder}</h2>
+        <h2>account id: {accountId}</h2>
+        <h2>transaction amount: {transactionAmount}</h2>
+        <h2>users: {users}</h2>
       </div>
 
       <div className="first">

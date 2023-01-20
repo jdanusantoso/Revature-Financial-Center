@@ -30,7 +30,6 @@ const Request: React.FC<any> = () => {
   const [memoRequest, setmemoRequest] = useState("");
   const [requestTransactionType, setrequestTransactionType] = useState("");
   const [transactionAmount, settransactionAmount] = useState(0);
-  const [account, setaccount] = useState("");
 
   const navigate = useNavigate();
 
@@ -53,7 +52,6 @@ const Request: React.FC<any> = () => {
         );
         setmemoRequest(response.data.requestTransactionType);
         settransactionAmount(response.data.transactionAmount);
-        setaccount(response.data.account);
 
         //if the account logged in successfully, their userId won't be 0.
         if (response.data == null) {
@@ -87,15 +85,12 @@ const Request: React.FC<any> = () => {
       <div className="textlogin">
         <h1>Welcome to Revature Financial Center</h1>
         <h2>Request Window: {appState.user.username}</h2>
-        <h2>1 requestId: {requestId}</h2>
-        <h2>2 accountHolderRequest: {accountHolderRequest}</h2>
-        <h2>
-          3 accountHolderRecipientRequest: {accountHolderRecipientRequest}
-        </h2>
-        <h2>4 memoRequest: {memoRequest}</h2>
-        <h2>5 requestTransactionType: {requestTransactionType}</h2>
-        <h2>5 transactionAmount: {transactionAmount}</h2>
-        <h2>5 account: {account}</h2>
+        <h2>requestId: {requestId}</h2>
+        <h2>accountHolderRequest: {accountHolderRequest}</h2>
+        <h2>accountHolderRecipientRequest: {accountHolderRecipientRequest}</h2>
+        <h2>memoRequest: {memoRequest}</h2>
+        <h2>requestTransactionType: {requestTransactionType}</h2>
+        <h2>transactionAmount: {transactionAmount}</h2>
       </div>
 
       <div className="receiver">
