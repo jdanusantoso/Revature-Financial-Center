@@ -43,7 +43,7 @@ const Login: React.FC<any> = () => {
 
     console.log(appState.user.id);
     if (appState.user.id > 0) {
-      navigate("/dashboard"); //thanks to Routing in the App.tsx, this will switch the component.
+      navigate("/user"); //thanks to Routing in the App.tsx, this will switch the component.
     }
   };
 
