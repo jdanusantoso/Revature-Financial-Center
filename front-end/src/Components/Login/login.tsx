@@ -1,16 +1,19 @@
 import React, { useState } from "react";
-import axios from "axios";
 import "./login.css";
 import { useNavigate } from "react-router-dom";
-import Register from "../Register/register";
-import Dashboard from "../Dashboard/dashboard";
+import { loginUser } from "../../actions/UserActions";
+import { useDispatch, useSelector } from "react-redux";
 
 const Login: React.FC<any> = () => {
+  const appState = useSelector<any, any>((state) => state);
+
+  //we need this object to actually dispatch data to our store
+  const dispatch = useDispatch();
   const [error, setError] = useState("");
   const user = {
     userId: 0,
     username: "",
-    password: 0,
+    password: "",
   };
 
   //useState hooks to declare some state that will hold username and password
@@ -32,47 +35,25 @@ const Login: React.FC<any> = () => {
   };
 
   const login = async () => {
-    //send an HTTP POST request with axios, and store the response in a variable that we can use
-    try {
-      const response = await axios.get(
-        "http://localhost:5556/data/users/login",
-        { params: { username, password } }
-      );
-      console.log(response);
-      if (response.status === 200) {
-        if (response.data[0] == null) {
-          console.log("Error");
-          setError("Username or Password is Incorrect, Please try again!");
-        } else {
-          //populate our user object from above with the incoming data from the server
-          user.userId = response.data[0].userId;
-          user.username = response.data[0].username;
-          user.password = response.data[0].password;
+    await dispatch(
+      loginUser({ username, password }) as any
+      //these are the states that were changed with handleChange
+      //we need "as any" to make it so that the return type can be any type
+    );
 
-          console.log(response.data[0].userId);
-          navigate("/dashboard");
-          //if the user logged in successfully, their userId won't be 0.
-        }
-      } else {
-        console.log("ERROR" + response);
-      }
-    } catch (error) {
-      const err = error as Error;
-      setError("User Already Found");
+    console.log(appState.user.id);
+    if (appState.user.id > 0) {
+      navigate("/dashboard"); //thanks to Routing in the App.tsx, this will switch the component.
     }
   };
 
-  const status = {
-    loading: "loading your data",
-    updating: "updating your data",
-    updated: "your data is updated",
-  };
   return (
     <div className="login">
       {error && <p className="error-message">{error}</p>}
 
       <div className="textlogin">
-        <h1>Welcome to Revature Financial Center</h1>
+        <h1>Welcome to Revature Financial Center </h1>
+        <h2>User: {appState.user.username}</h2>
       </div>
       <div className="user">
         <input
@@ -129,3 +110,33 @@ const Login: React.FC<any> = () => {
   );
 };
 export default Login;
+
+/* 
+    try {
+      const response = await axios.get(
+        "http://localhost:5556/data/users/login",
+        { params: { username, password } }
+      );
+      console.log(response);
+      if (response.status === 200) {
+        if (response.data[0] == null) {
+          console.log("Error");
+          setError("Username or Password is Incorrect, Please try again!");
+        } else {
+          //populate our user object from above with the incoming data from the server
+          user.userId = response.data[0].userId;
+          user.username = response.data[0].username;
+          user.password = response.data[0].password;
+
+          console.log(response.data[0].userId);
+
+          navigate("/dashboard");
+          //if the user logged in successfully, their userId won't be 0.
+        }
+      } else {
+        console.log("ERROR" + response);
+      }
+    } catch (error) {
+      const err = error as Error;
+      setError("User Already Found");
+    }*/

@@ -69,24 +69,22 @@ class AccountServiceTesting {
 
     //Test 9
     @Test
-        void withdrawTest2() {
-            accountsService.withdrawMoney(a, a.getAccountBalance());
-            double actual = ( a.getAccountBalance() -a.getTransactionAmount());
-            assertEquals(3700, actual, 0.001);
+    void withdrawTest2() {
+        accountsService.withdrawMoney(a, a.getAccountBalance());
+        double actual = ( a.getAccountBalance() -a.getTransactionAmount());
+        assertEquals(3700, actual, 0.001);
 
-        }
+    }
 
-     //Test 10
-     @Test
-     void withdrawTest3() {
+    //Test 10
+    @Test
+    void withdrawTest3() {
         accountsService.withdrawMoney(a, a.getAccountBalance());
         double actual = ( a.getAccountBalance() -a.getTransactionAmount()); //account transaction amount is 0
-         assertEquals(-100, actual, 0.001); //Trying to fix that
-
-        }
-
-
+        assertEquals(-100, actual, 0.001); //Trying to fix that
 
     }
 
 
+
+}
