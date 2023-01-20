@@ -82,6 +82,7 @@ const UserProfile: React.FC<any> = () => {
       <button className="login-button" onClick={login}>
         View User Information
       </button>
+
       <button
         className="dashboard-button"
         onClick={() => navigate("/dashboard")}

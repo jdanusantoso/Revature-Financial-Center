@@ -51,7 +51,7 @@ public class AccountsController {
     }
 
 
-    @GetMapping (value="/getAllAccounts")
+        @GetMapping (value="/getAllAccounts")
     //url: localhost:5556/data/accounts/getAllAccounts
     public ResponseEntity<List<Accounts>> getAllAccounts(){
 

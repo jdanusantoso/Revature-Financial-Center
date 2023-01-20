@@ -95,7 +95,7 @@ public class UserController {
 
     }
 
-    @PatchMapping(value="/updateUserInfo/{userId}")
+    @PatchMapping(value="/a/{userId}")
     public ResponseEntity<Users> updateUserInfo(@PathVariable int userId, @RequestBody Users user){
         Users updateUserInfo = uDAO.findById(userId)
                 .orElseThrow(() -> new UserNotFoundException());

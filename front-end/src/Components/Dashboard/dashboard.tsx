@@ -71,6 +71,12 @@ const Dashboard: React.FC<any> = (props: any) => {
         </button>
       </div>
 
+      <div className="depo">
+        <button className="send" onClick={() => navigate("/gatherAccounts")}>
+          View All User Accounts
+        </button>
+      </div>
+
       <button className="logout-button" onClick={logout}>
         Log Out
       </button>
