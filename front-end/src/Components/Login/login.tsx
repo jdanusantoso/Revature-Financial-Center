@@ -9,6 +9,7 @@ const Login: React.FC<any> = () => {
 
   //we need this object to actually dispatch data to our store
   const dispatch = useDispatch();
+
   const [error, setError] = useState("");
   const user = {
     userId: 0,
@@ -23,6 +24,9 @@ const Login: React.FC<any> = () => {
   //we'll use this object to switch components whenever appropriate
   //this is what lets us navigate to different components with events - no more manual URL changes!
   const navigate = useNavigate();
+  if (appState.user.id > 0) {
+    navigate("/UserProfile"); //thanks to Routing in the App.tsx, this will switch the component.
+  }
 
   /* when the user updates the username/password this will be called thanks to onChange
   the username OR password state will get updated based on the name of the input that's changing */
@@ -44,6 +48,8 @@ const Login: React.FC<any> = () => {
     console.log(appState.user.id);
     if (appState.user.id > 0) {
       navigate("/UserProfile"); //thanks to Routing in the App.tsx, this will switch the component.
+    } else {
+      setError("Can't finda ya brah");
     }
   };
 
@@ -78,8 +84,7 @@ const Login: React.FC<any> = () => {
       </button>
 
       <button className="register-button" onClick={() => navigate("Register")}>
-        {" "}
-        New Users Register here{" "}
+        New Users Register here
       </button>
 
       <div className="disclaimer">

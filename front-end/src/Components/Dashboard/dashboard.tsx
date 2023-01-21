@@ -36,50 +36,53 @@ const Dashboard: React.FC<any> = (props: any) => {
       <h3 className="dashboard-menu">Dashboard</h3>
 
       <div className="depo">
-        <button className="income" onClick={() => navigate("/UserProfile")}>
+        <button className="button" onClick={() => navigate("/UserProfile")}>
           UserProfile
         </button>
-      </div>
 
-      <div className="depo">
-        <button className="send" onClick={() => navigate("/editProfile")}>
-          Edit Profile
+        <div className="depo">
+          <button className="button" onClick={() => navigate("/editProfile")}>
+            Edit Profile
+          </button>
+        </div>
+
+        <div className="depo">
+          <button className="button" onClick={() => navigate("/withdraw")}>
+            Withdraw
+          </button>
+        </div>
+
+        <div className="depo">
+          <button className="button" onClick={() => navigate("/transfer")}>
+            Transfer Money between Accounts
+          </button>
+        </div>
+
+        <div className="depo">
+          <button className="button" onClick={() => navigate("/request")}>
+            Request Money
+          </button>
+        </div>
+
+        <div className="depo">
+          <button className="button" onClick={() => navigate("/send")}>
+            Send Money
+          </button>
+        </div>
+
+        <div className="depo">
+          <button
+            className="button"
+            onClick={() => navigate("/gatherAccounts")}
+          >
+            View All User Accounts
+          </button>
+        </div>
+
+        <button className="button" onClick={logout}>
+          Log Out
         </button>
       </div>
-
-      <div className="depo">
-        <button className="withdraw" onClick={() => navigate("/withdraw")}>
-          Withdraw
-        </button>
-      </div>
-
-      <div className="depo">
-        <button className="transfer" onClick={() => navigate("/transfer")}>
-          Transfer Money between Accounts
-        </button>
-      </div>
-
-      <div className="depo">
-        <button className="request" onClick={() => navigate("/request")}>
-          Request Money
-        </button>
-      </div>
-
-      <div className="depo">
-        <button className="send" onClick={() => navigate("/send")}>
-          Send Money
-        </button>
-      </div>
-
-      <div className="depo">
-        <button className="send" onClick={() => navigate("/gatherAccounts")}>
-          View All User Accounts
-        </button>
-      </div>
-
-      <button className="logout-button" onClick={logout}>
-        Log Out
-      </button>
     </div>
   );
 };

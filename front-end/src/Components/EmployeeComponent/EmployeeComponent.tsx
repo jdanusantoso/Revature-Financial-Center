@@ -7,12 +7,13 @@ export const EmployeeComponent: React.FC<any> = (employee: any) => {
   return (
     <div className="employee-container">
       <div className="employee-name">
-        <h3>{employee.accountHolder}</h3>
+        <h3>{employee.accountBalance}</h3>
       </div>
       <div className="employee-data">
-        <p>Quote: {employee.quote}</p>
-        <p>Relationship: {employee.relationship}</p>
-        <p>Relationship: {employee.price}</p>
+        <p>Quote: {employee.accountHolder}</p>
+        <p>Relationship: {employee.accountId}</p>
+        <p>Relationship: {employee.transactionAmount}</p>
+        <p>Relationship: {employee.users}</p>
       </div>
     </div>
   );

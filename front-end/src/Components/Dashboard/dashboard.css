@@ -9,8 +9,23 @@
 
 }
 
-.depo {
-    height: 40px;
+
+.button {
+    text-align: center;
+    font-size: 16px;
+    transition-duration: 1.5s;
+    position: center;
+    width: 250px;
+    margin: auto;
+    border-radius: 20px;
+
+}
+
+.button:hover {
+    background-color: #cadfcb;
+    padding: 15px;
+    /* Green */
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 
 }
 

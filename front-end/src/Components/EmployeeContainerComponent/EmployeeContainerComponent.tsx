@@ -5,9 +5,11 @@ import { useSelector } from "react-redux";
 import { EmployeeComponent } from "../EmployeeComponent/EmployeeComponent";
 
 interface IProduct {
-  name: string;
-  image: string;
-  price: number;
+  accountBalance: number;
+  accountHolder: string;
+  accountId: number;
+  transactionAmount: number;
+  users: string;
 }
 
 const EmployeeContainerComponent: React.FC<any> = () => {
@@ -15,7 +17,6 @@ const EmployeeContainerComponent: React.FC<any> = () => {
   const [error, setError] = useState("");
 
   let initialProducts: IProduct[] = [];
-  const [theThing, setTheThing] = useState("");
 
   const login = async () => {
     //send an HTTP POST request with axios, and store the response in a variable that we can use
@@ -29,13 +30,16 @@ const EmployeeContainerComponent: React.FC<any> = () => {
       if (response.status === 200) {
         initialProducts = response.data;
 
-        console.log("response.data[2]");
+        console.log("Initial products");
         console.log(initialProducts);
 
         let i = 0;
         while (response.data[i] != null) {
+          console.log("While loop");
           console.log(response.data[i]);
+          console.log(initialProducts[i]);
           i++;
+          console.log(i);
         }
       } else {
         console.log("ERROR" + response.status);
@@ -49,12 +53,9 @@ const EmployeeContainerComponent: React.FC<any> = () => {
 
   let [employees, setEmployees] = useState(initialProducts);
 
-  useEffect(() => {
-    setEmployees(initialProducts);
-  }, []);
-
   return (
     <div>
+      <h3>Here we go</h3>
       {employees.map((employee: any) => {
         return <EmployeeComponent {...employee} key={employee.userId} />;
       })}
